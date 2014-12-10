@@ -1,0 +1,8 @@
+
+SECURE LOGIN MODULE INSTALLATION
+--------------------------------
+
+1. Untar the module into your Drupal modules directory.
+2. Read the README.txt before enabling the module and before upgrading!
+3. Enable the module at admin/modules.
+4. Configure the module at admin/config/people/securelogin.

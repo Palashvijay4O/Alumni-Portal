@@ -1,0 +1,52 @@
+Continuous rss scrolling
+--------------------------------------------
+A module to show the rss feed in the sidebar with scrolling effect.
+
+
+Official website for live demo
+--------------------------------------------
+http://www.gopiplus.com/extensions/2012/02/drupal-continuous-vertical-rss-scrolling-module-for-drupal-cms/
+
+
+Installation Steps
+--------------------------------------------
+Step 1 Download the module: Download the module(continuous_rss_scrolling.tar.gz or continuous_rss_scrolling.zip) from the below mentioned download link and check the module version, it must compatible to your drupal.
+Step 2 Extract the files: Extract the available compressed file into your local drive and find the folder continuous_rss_scrolling
+Step 3 Upload the folder: Using FTP, Upload the folder (continuous_rss_scrolling) into your droupal website. You should upload the file into "sites/all/modules" this directory.
+
+If you don't know how to upload the file using FTP, follow the below 2nd option to install your module.
+
+Step 1: Go to your drupal administration page and open module page,
+Step 2: In the module page click "Install new module" link. if you can't find the link enable the "Update manager" module from your module list. now you can see the "Install new module" link in the page.
+Step 3: Copy the below link and paste "Install from a URL" text box and click install button.
+
+
+Module Configuration
+--------------------------------------------
+Go to Administer >> Modules  page and check the 'Enabled' box near to the module Continuous rss scrolling and then click the 'Save Configuration' button at the bottom.
+
+Go to Administer >> Structure >> Continuous rss scrolling page and enter the number 1 in the "Number of blocks" text box and click the 'Save Configuration' button at the bottom. it means we are going to create one scrolling block into the website
+
+Go to Administer >> Structure >> Blocks page and find the "Continuous rss scrolling" blocks. Set the corresponding drop down box to the desired location(i.e. Sidebar Left, Sidebar Right, Footer First) click the 'Save blocks' button at the bottom.
+
+If you don’t know how to upload the file using FTP, follow the below 2nd option to install your continuous rss scrolling module.
+
+Step 1: Go to your drupal administration page and open module page.
+
+Step 2: In the module page click Install new module link. if you can’t find the link enable the Update manager module from your module list. now you can see the Install new module link in the page.
+
+Step 3: Copy the below link and paste Install from a URL text box and click install button.
+
+
+Module Configuration
+--------------------------------------------
+1. Go to Administer >> Modules page and check the Enabled box near to the module Continuous rss scrolling and then click the Save Configuration button at the bottom.
+
+2. Go to Administer >> Structure >> Continuous rss scrolling page and enter the number 1 in the Number of blocks text box and click the Save Configuration button at the bottom. it means we are going to create one scrolling block into the website.
+
+3. Go to Administer >> Structure >> Blocks page and find the Continuous rss scrolling blocks. Set the corresponding drop down box to the desired location(i.e. Sidebar Left, Sidebar Right, Footer First) click the Save blocks button at the bottom.
+
+4. Now open your website front end and see the Continuous RSS scrolling module in the selected location. At first it use the default RSS link, go to configuration link of the module and update the default module setting. see the below screen.
+
+
+

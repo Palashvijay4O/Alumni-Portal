@@ -1,0 +1,128 @@
+/*
+*
+*	comments styles
+*
+*/
+
+
+/*	Structure
+-------------------------------------------------------------- */
+
+#comments ul.links{
+	margin: -10px 0px 0px 0px;
+	padding: 0px;
+	text-align: right;
+	display: block;
+}
+	
+#comments ul.links li{
+	margin-right: 3px;
+	padding: 2px 0px 2px 20px;
+}
+ 
+.comment{
+	margin-bottom:20px;
+}
+
+.comment-content{
+  padding: 10px;
+  position: relative;
+}
+
+.arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 10px;
+  left: -28px;
+}
+
+.arrow-border {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 10px;
+  left: -38px;
+}
+
+.comment .user-picture img{
+	float: left;
+	margin: 0px 10px 2px 0px;
+}
+
+.comment h3{
+	margin-bottom: 5px;
+}
+
+.comment .submitted{
+	margin-bottom: 10px;
+}
+
+.user-signature p{
+	margin-top:3px;
+}
+
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+li.comment-add,
+li.comment-reply{
+	background: url(../img/icons/comment_add.png) no-repeat left center;
+}
+
+li.comment-delete{
+	background: url(../img/icons/comment_delete.png) no-repeat left center;
+}
+
+li.comment-edit{
+	background: url(../img/icons/comment_edit.png) no-repeat left center;
+}
+
+li.comment-forbidden{
+	background: url(../img/icons/block_16.png) no-repeat left center;
+}
+
+.arrow{
+  border-style: solid;
+  border-width: 15px;
+}
+
+.arrow-border{
+  border-style: solid;
+  border-width: 15px;
+}
+
+.odd .comment-content{
+  border: 8px solid #dff0fc;
+  background: #f2f9fe;
+}
+
+.even .comment-content{
+  border: 8px solid #e8e8e8;
+  background:#f6f8f9;
+}
+
+.odd .arrow{
+	border-color: transparent #f2f9fe transparent transparent;
+}
+
+.even .arrow{
+	border-color: transparent #f6f8f9 transparent transparent;
+}
+
+.odd .arrow-border{
+  border-color: transparent #dff0fc transparent transparent;
+}
+  
+.even .arrow-border{
+  border-color: transparent #e8e8e8 transparent transparent;
+}
+
+.comment .submitted{
+	font-size: 0.9em;
+}
+
+.user-signature{
+	font-style:italic;
+	color: #979696;
+}

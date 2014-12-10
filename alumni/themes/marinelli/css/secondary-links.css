@@ -1,0 +1,66 @@
+/* 
+*	
+* Secondary Links
+*
+*/
+
+/*	Structure
+-------------------------------------------------------------- */
+
+#navigation-secondary{
+	float: left;
+	width: 100%;
+	height:40px;
+	line-height:40px;
+}
+	
+#navigation-secondary ul{
+	margin:0px 0px 0px 5px;
+	padding:0px;
+	list-style:none;
+}
+	
+#navigation-secondary li{
+	float:left;
+	margin-left: 5px;
+	padding:0px;
+}
+
+#navigation-secondary li:after{
+	content:"|";
+}
+	
+#navigation-secondary a{ /* make it block-level to fill the entire space */
+	padding-right:5px;
+}
+	
+#navigation-secondary span{
+	padding:5px;
+}
+	
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+#navigation-secondary{
+	font-size: 1em;
+	background:#054b81;
+	color:#417297;
+}
+	
+#navigation-secondary a{
+	color: #eee;
+}
+
+#navigation-secondary li a:hover{
+	text-decoration: none;
+	color: white;
+}
+	
+#navigation-secondary li a.active{
+	font-weight: bold;
+}
+
+#navigation-secondary li a.active:before{
+	content:"↓";
+}
+	 

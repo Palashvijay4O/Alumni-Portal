@@ -1,0 +1,128 @@
+/*
+*
+*
+*	advertise image
+*
+*/
+
+/*	Structure
+-------------------------------------------------------------- */
+
+#header-images{
+	display: block;
+	float: left;
+	position: relative;
+	z-index: 2; /* under primary menu but over content wrapper (z-index=1) */
+	width: 100%;
+	height: 320px; /* image image height */
+}
+	
+#header-images.unlimited{
+	height: auto; /* advertise region with sull height*/
+}
+
+img.slide{
+	width: 100%;
+	height: 320px; /* image image height */
+}
+
+#header-image-text{ /* image text container */
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	z-index: 9;
+	width: 100%;
+}
+
+#header-image-text-data{ /* image text data */
+	padding: 15px 20px 15px 20px;
+	margin-right: 70px; /* stay away form navigation */
+}
+
+#header-image-navigation{ /* image navigation */
+	position: absolute;
+	z-index: 110;
+	bottom: 10px;
+	right: 10px;
+	width: 60px;
+}
+
+#header-image-title{ /* image title */
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+#header-image-description{ /* image description */
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+#header-image-navigation a{ /*image navigation links */
+	float: left;
+	width: 1em;
+	height: 1em;
+	line-height: 0.85em;
+	margin-right: 3px;
+	margin-left: 3px;
+}
+
+#header-image-navigation a#header-image-prev,
+#header-image-navigation a#header-image-next{ /*image navigation links */
+	text-indent: 0.35em;
+}
+
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+#header-images{ /* advertise image */
+	color: white;
+	background:#054b81;
+}
+
+#header-image-text{
+	background: black; /* for older browsers */
+}
+
+#header-image-title{ /* image title font style */
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+#header-image-description{ /* image description */
+	font-size: 1em;
+	font-style: italic;
+	color:#898989;
+}
+
+#header-image-title,
+#header-image-title a{ /* image title link color */
+	color:#d7d7d7;
+}
+
+#header-image-description a{ /* image description link color */
+	color:#898989;
+}
+
+#header-image-title a:hover,
+#header-image-description a:hover{
+	text-decoration: none;
+}
+
+#header-image-description a:hover{
+	color:#898989;
+}
+
+a#header-image-prev,
+a#header-image-next{
+	font-family:arial;
+	font-weight: lighter;
+	font-size: 1.8em;
+	color:#fff;
+	background: #444444;
+}
+	
+a#header-image-prev:hover,
+a#header-image-next:hover{
+	background: #f97e05;
+	text-decoration: none;
+}

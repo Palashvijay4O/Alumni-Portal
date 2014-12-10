@@ -1,0 +1,194 @@
+/*
+*
+*
+*	common drupal elements
+*
+*
+*/
+
+
+/*	Structure
+-------------------------------------------------------------- */
+
+.tab-container{ /* drupal tabs */
+	margin-bottom: 15px;
+}
+
+.tabs.primary{
+	margin: 0;
+	padding: 0 0 5px 10px;
+}
+
+.tabs.primary li{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.tabs.primary li a{
+	padding:5px;
+}
+
+.tabs.secondary{
+	margin:10px 0 10px 0;
+	padding:0 0 10px 10px;
+}
+
+.tabs.secondary li{
+	margin:0 5px 0 0;
+	padding:0;
+}
+
+.tabs.secondary a{
+	display: inline-block;
+	padding:2px 4px 2px 4px;
+}
+
+div.messages{ /* messagges */
+	padding:15px 15px 15px 60px;
+	margin-bottom:15px;
+}
+
+.item-list ul li,
+.node ul li{
+	margin-left:0.4em;
+	list-style-type: circle;
+}
+
+div.item-list ul.pager{ /* pager */
+	text-align: left;
+	margin:15px 0px 15px 0px;
+	padding: 0;
+}
+
+div.item-list ul.pager li{ /* pager */
+	margin:0px 3px 0px 0px;
+	padding: 0px;
+}
+
+div.item-list ul.pager li.pager-next,
+div.item-list ul.pager li.pager-prev{ /* pager */
+	margin-right: 5px;
+}
+
+div.item-list ul.pager li.pager-current,
+div.item-list ul.pager li.pager-item a{ /* pager */
+	padding:0.2em 0.5em 0.2em 0.5em;
+}
+
+#block-user-login .item-list ul{
+	margin-left:10px;
+}
+
+body.page-taxonomy-term h1#page-title{ /* taxonomy term page */
+	padding:2px 0 2px 40px;
+}
+
+.taxonomy-term-description{ /* taxonomy term page */
+	padding:15px;
+}
+
+/* lists in blocks */
+
+.block .item-list ul{
+	margin-left: 12px;
+}
+
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+.tabs.primary li a{
+	background: #eee;
+	color:#222;
+}
+
+.tabs.primary li a:hover{
+	background:#f97e05;
+	color:#fff;
+	border-color:#f97e05
+}
+
+.tabs.primary li.active a{
+	background: #fff;
+}
+
+.tabs.primary li.active a:hover{
+	background:#fff;
+	color:#222;
+	border-color:#ccc;
+	border-bottom-color:#fff; 
+}
+
+.tabs.secondary li{
+	border:none;
+}
+
+.tabs.secondary a{
+	background: none;
+	border:none;
+	color:#222;
+	border:1px solid #eee;
+}
+
+.tabs.secondary a.active,
+.tabs.secondary a:hover{
+	text-decoration: none;
+	color:#fff;
+	background: #054b81;
+}
+
+div.messages.status{
+	background: #ddf9b1 url(../img/icons/tick_32.png) no-repeat 15px 10px;
+	color: #5f7b35;
+	border:1px solid #bbdc87;
+}
+
+div.messages.warning{
+	background: #faed56 url(../img/icons/warning_32.png) no-repeat 15px 10px;
+	color: #5f5f58;
+	border:1px solid #f1e23c;
+}
+	
+div.messages.error{
+	background: #ac1f03 url(../img/icons/stop_32.png) no-repeat 15px 10px;
+	color: #fff;
+	border:1px solid #ea7775;
+}
+
+div.messages.error a{
+	color:white;
+}
+
+.item-list ul li,
+.node ul li{
+	list-style-type:none;
+	list-style:disc;
+}
+
+.item-list ul.pager a{
+	text-decoration: none;
+}
+
+#content .item-list ul.pager li.pager-item a{
+	background: #eee;
+	color:#666;
+	border:1px solid #ccc;
+}
+
+#content .item-list ul.pager li.pager-current,
+#content .item-list ul.pager li.pager-item a:hover{
+	font-weight: bold;
+	color:white;
+	background: #054b81;
+	border:1px solid #4585af;
+}
+
+body.page-taxonomy-term h1#page-title{ /* taxonomy term page */
+	background:url(../img/icons/label_32.png) no-repeat left top;
+}
+
+.taxonomy-term-description{ /* taxonomy term page */
+	font-size: 1.2em;
+	font-style: italic;
+	background: #fcfce2;
+}

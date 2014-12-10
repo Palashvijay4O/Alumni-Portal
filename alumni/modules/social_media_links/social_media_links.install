@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Social Media Link module's install and uninstall code.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function social_media_links_uninstall() {
+  variable_del('social_media_links_platforms');
+  variable_del('social_media_links_appearance');
+  variable_del('social_media_links_link_attributes');
+  variable_del('social_media_links_icon_style');
+}
+
+/**
+ * Migrate the platform data to the new structure.
+ */
+function social_media_links_update_7101() {
+  $platforms = variable_get('social_media_links_platforms', array());
+  foreach ($platforms as $key => $value) {
+    if (!is_array($value)) {
+      $platform_new = array(
+        'platform_value' => $value,
+        'weight' => 0,
+      );
+      $platforms[$key] = $platform_new;
+    }
+  }
+  variable_set('social_media_links_platforms', $platforms);
+}

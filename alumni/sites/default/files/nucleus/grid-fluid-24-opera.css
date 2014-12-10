@@ -1,0 +1,1020 @@
+.grid-1 {
+  padding-right: -0.1666%;
+}
+.grid-2 {
+  padding-right: -0.3333%;
+}
+.grid-3 {
+  padding-right: -0.5%;
+}
+.grid-4 {
+  padding-right: -0.6666%;
+}
+.grid-5 {
+  padding-right: -0.8333%;
+}
+.grid-6 {
+  padding-right: -0%;
+}
+.grid-7 {
+  padding-right: -0.1666%;
+}
+.grid-8 {
+  padding-right: -0.3333%;
+}
+.grid-9 {
+  padding-right: -0.5%;
+}
+.grid-10 {
+  padding-right: -0.6666%;
+}
+.grid-11 {
+  padding-right: -0.8333%;
+}
+.grid-12 {
+  padding-right: -0%;
+}
+.grid-13 {
+  padding-right: -0.1666%;
+}
+.grid-14 {
+  padding-right: -0.3333%;
+}
+.grid-15 {
+  padding-right: -0.5%;
+}
+.grid-16 {
+  padding-right: -0.6666%;
+}
+.grid-17 {
+  padding-right: -0.8333%;
+}
+.grid-18 {
+  padding-right: -0%;
+}
+.grid-19 {
+  padding-right: -0.1666%;
+}
+.grid-20 {
+  padding-right: -0.3333%;
+}
+.grid-21 {
+  padding-right: -0.5%;
+}
+.grid-22 {
+  padding-right: -0.6666%;
+}
+.grid-23 {
+  padding-right: -0.8333%;
+}
+.grid-24 {
+  padding-right: -0%;
+}
+
+/* for grouped 24 columns */
+.group-24 .grid-1 {
+  padding-right: -0.1666%;
+}
+.group-24 .grid-2 {
+  padding-right: -0.3333%;
+}
+.group-24 .grid-3 {
+  padding-right: -0.5%;
+}
+.group-24 .grid-4 {
+  padding-right: -0.6666%;
+}
+.group-24 .grid-5 {
+  padding-right: -0.8333%;
+}
+.group-24 .grid-6 {
+  padding-right: -0%;
+}
+.group-24 .grid-7 {
+  padding-right: -0.1666%;
+}
+.group-24 .grid-8 {
+  padding-right: -0.3333%;
+}
+.group-24 .grid-9 {
+  padding-right: -0.5%;
+}
+.group-24 .grid-10 {
+  padding-right: -0.6666%;
+}
+.group-24 .grid-11 {
+  padding-right: -0.8333%;
+}
+.group-24 .grid-12 {
+  padding-right: -0%;
+}
+.group-24 .grid-13 {
+  padding-right: -0.1666%;
+}
+.group-24 .grid-14 {
+  padding-right: -0.3333%;
+}
+.group-24 .grid-15 {
+  padding-right: -0.5%;
+}
+.group-24 .grid-16 {
+  padding-right: -0.6666%;
+}
+.group-24 .grid-17 {
+  padding-right: -0.8333%;
+}
+.group-24 .grid-18 {
+  padding-right: -0%;
+}
+.group-24 .grid-19 {
+  padding-right: -0.1666%;
+}
+.group-24 .grid-20 {
+  padding-right: -0.3333%;
+}
+.group-24 .grid-21 {
+  padding-right: -0.5%;
+}
+.group-24 .grid-22 {
+  padding-right: -0.6666%;
+}
+.group-24 .grid-23 {
+  padding-right: -0.8333%;
+}
+.group-24 .grid-24 {
+  padding-right: -0%;
+}
+
+/* for grouped 23 columns */
+.group-23 .grid-1 {
+  padding-right: -0.3478%;
+}
+.group-23 .grid-2 {
+  padding-right: -0.6956%;
+}
+.group-23 .grid-3 {
+  padding-right: -0.0434%;
+}
+.group-23 .grid-4 {
+  padding-right: -0.3913%;
+}
+.group-23 .grid-5 {
+  padding-right: -0.7391%;
+}
+.group-23 .grid-6 {
+  padding-right: -0.0869%;
+}
+.group-23 .grid-7 {
+  padding-right: -0.4347%;
+}
+.group-23 .grid-8 {
+  padding-right: -0.7826%;
+}
+.group-23 .grid-9 {
+  padding-right: -0.1304%;
+}
+.group-23 .grid-10 {
+  padding-right: -0.4782%;
+}
+.group-23 .grid-11 {
+  padding-right: -0.826%;
+}
+.group-23 .grid-12 {
+  padding-right: -0.1739%;
+}
+.group-23 .grid-13 {
+  padding-right: -0.5217%;
+}
+.group-23 .grid-14 {
+  padding-right: -0.8695%;
+}
+.group-23 .grid-15 {
+  padding-right: -0.2173%;
+}
+.group-23 .grid-16 {
+  padding-right: -0.5652%;
+}
+.group-23 .grid-17 {
+  padding-right: -0.913%;
+}
+.group-23 .grid-18 {
+  padding-right: -0.2608%;
+}
+.group-23 .grid-19 {
+  padding-right: -0.6086%;
+}
+.group-23 .grid-20 {
+  padding-right: -0.9565%;
+}
+.group-23 .grid-21 {
+  padding-right: -0.3043%;
+}
+.group-23 .grid-22 {
+  padding-right: -0.6521%;
+}
+.group-23 .grid-23 {
+  padding-right: -0%;
+}
+
+/* for grouped 22 columns */
+.group-22 .grid-1 {
+  padding-right: -0.5454%;
+}
+.group-22 .grid-2 {
+  padding-right: -0.0909%;
+}
+.group-22 .grid-3 {
+  padding-right: -0.6363%;
+}
+.group-22 .grid-4 {
+  padding-right: -0.1818%;
+}
+.group-22 .grid-5 {
+  padding-right: -0.7272%;
+}
+.group-22 .grid-6 {
+  padding-right: -0.2727%;
+}
+.group-22 .grid-7 {
+  padding-right: -0.8181%;
+}
+.group-22 .grid-8 {
+  padding-right: -0.3636%;
+}
+.group-22 .grid-9 {
+  padding-right: -0.909%;
+}
+.group-22 .grid-10 {
+  padding-right: -0.4545%;
+}
+.group-22 .grid-11 {
+  padding-right: -0%;
+}
+.group-22 .grid-12 {
+  padding-right: -0.5454%;
+}
+.group-22 .grid-13 {
+  padding-right: -0.0909%;
+}
+.group-22 .grid-14 {
+  padding-right: -0.6363%;
+}
+.group-22 .grid-15 {
+  padding-right: -0.1818%;
+}
+.group-22 .grid-16 {
+  padding-right: -0.7272%;
+}
+.group-22 .grid-17 {
+  padding-right: -0.2727%;
+}
+.group-22 .grid-18 {
+  padding-right: -0.8181%;
+}
+.group-22 .grid-19 {
+  padding-right: -0.3636%;
+}
+.group-22 .grid-20 {
+  padding-right: -0.909%;
+}
+.group-22 .grid-21 {
+  padding-right: -0.4545%;
+}
+.group-22 .grid-22 {
+  padding-right: -0%;
+}
+
+/* for grouped 21 columns */
+.group-21 .grid-1 {
+  padding-right: -0.7619%;
+}
+.group-21 .grid-2 {
+  padding-right: -0.5238%;
+}
+.group-21 .grid-3 {
+  padding-right: -0.2857%;
+}
+.group-21 .grid-4 {
+  padding-right: -0.0476%;
+}
+.group-21 .grid-5 {
+  padding-right: -0.8095%;
+}
+.group-21 .grid-6 {
+  padding-right: -0.5714%;
+}
+.group-21 .grid-7 {
+  padding-right: -0.3333%;
+}
+.group-21 .grid-8 {
+  padding-right: -0.0952%;
+}
+.group-21 .grid-9 {
+  padding-right: -0.8571%;
+}
+.group-21 .grid-10 {
+  padding-right: -0.619%;
+}
+.group-21 .grid-11 {
+  padding-right: -0.3809%;
+}
+.group-21 .grid-12 {
+  padding-right: -0.1428%;
+}
+.group-21 .grid-13 {
+  padding-right: -0.9047%;
+}
+.group-21 .grid-14 {
+  padding-right: -0.6666%;
+}
+.group-21 .grid-15 {
+  padding-right: -0.4285%;
+}
+.group-21 .grid-16 {
+  padding-right: -0.1904%;
+}
+.group-21 .grid-17 {
+  padding-right: -0.9523%;
+}
+.group-21 .grid-18 {
+  padding-right: -0.7142%;
+}
+.group-21 .grid-19 {
+  padding-right: -0.4761%;
+}
+.group-21 .grid-20 {
+  padding-right: -0.238%;
+}
+.group-21 .grid-21 {
+  padding-right: -0%;
+}
+
+/* for grouped 20 columns */
+.group-20 .grid-1 {
+  padding-right: -0%;
+}
+.group-20 .grid-2 {
+  padding-right: -0%;
+}
+.group-20 .grid-3 {
+  padding-right: -0%;
+}
+.group-20 .grid-4 {
+  padding-right: -0%;
+}
+.group-20 .grid-5 {
+  padding-right: -0%;
+}
+.group-20 .grid-6 {
+  padding-right: -0%;
+}
+.group-20 .grid-7 {
+  padding-right: -0%;
+}
+.group-20 .grid-8 {
+  padding-right: -0%;
+}
+.group-20 .grid-9 {
+  padding-right: -0%;
+}
+.group-20 .grid-10 {
+  padding-right: -0%;
+}
+.group-20 .grid-11 {
+  padding-right: -0%;
+}
+.group-20 .grid-12 {
+  padding-right: -0%;
+}
+.group-20 .grid-13 {
+  padding-right: -0%;
+}
+.group-20 .grid-14 {
+  padding-right: -0%;
+}
+.group-20 .grid-15 {
+  padding-right: -0%;
+}
+.group-20 .grid-16 {
+  padding-right: -0%;
+}
+.group-20 .grid-17 {
+  padding-right: -0%;
+}
+.group-20 .grid-18 {
+  padding-right: -0%;
+}
+.group-20 .grid-19 {
+  padding-right: -0%;
+}
+.group-20 .grid-20 {
+  padding-right: -0%;
+}
+
+/* for grouped 19 columns */
+.group-19 .grid-1 {
+  padding-right: -0.2631%;
+}
+.group-19 .grid-2 {
+  padding-right: -0.5263%;
+}
+.group-19 .grid-3 {
+  padding-right: -0.7894%;
+}
+.group-19 .grid-4 {
+  padding-right: -0.0526%;
+}
+.group-19 .grid-5 {
+  padding-right: -0.3157%;
+}
+.group-19 .grid-6 {
+  padding-right: -0.5789%;
+}
+.group-19 .grid-7 {
+  padding-right: -0.8421%;
+}
+.group-19 .grid-8 {
+  padding-right: -0.1052%;
+}
+.group-19 .grid-9 {
+  padding-right: -0.3684%;
+}
+.group-19 .grid-10 {
+  padding-right: -0.6315%;
+}
+.group-19 .grid-11 {
+  padding-right: -0.8947%;
+}
+.group-19 .grid-12 {
+  padding-right: -0.1578%;
+}
+.group-19 .grid-13 {
+  padding-right: -0.421%;
+}
+.group-19 .grid-14 {
+  padding-right: -0.6842%;
+}
+.group-19 .grid-15 {
+  padding-right: -0.9473%;
+}
+.group-19 .grid-16 {
+  padding-right: -0.2105%;
+}
+.group-19 .grid-17 {
+  padding-right: -0.4736%;
+}
+.group-19 .grid-18 {
+  padding-right: -0.7368%;
+}
+.group-19 .grid-19 {
+  padding-right: -0%;
+}
+
+/* for grouped 18 columns */
+.group-18 .grid-1 {
+  padding-right: -0.5555%;
+}
+.group-18 .grid-2 {
+  padding-right: -0.1111%;
+}
+.group-18 .grid-3 {
+  padding-right: -0.6666%;
+}
+.group-18 .grid-4 {
+  padding-right: -0.2222%;
+}
+.group-18 .grid-5 {
+  padding-right: -0.7777%;
+}
+.group-18 .grid-6 {
+  padding-right: -0.3333%;
+}
+.group-18 .grid-7 {
+  padding-right: -0.8888%;
+}
+.group-18 .grid-8 {
+  padding-right: -0.4444%;
+}
+.group-18 .grid-9 {
+  padding-right: -0%;
+}
+.group-18 .grid-10 {
+  padding-right: -0.5555%;
+}
+.group-18 .grid-11 {
+  padding-right: -0.1111%;
+}
+.group-18 .grid-12 {
+  padding-right: -0.6666%;
+}
+.group-18 .grid-13 {
+  padding-right: -0.2222%;
+}
+.group-18 .grid-14 {
+  padding-right: -0.7777%;
+}
+.group-18 .grid-15 {
+  padding-right: -0.3333%;
+}
+.group-18 .grid-16 {
+  padding-right: -0.8888%;
+}
+.group-18 .grid-17 {
+  padding-right: -0.4444%;
+}
+.group-18 .grid-18 {
+  padding-right: -0%;
+}
+
+/* for grouped 17 columns */
+.group-17 .grid-1 {
+  padding-right: -0.8823%;
+}
+.group-17 .grid-2 {
+  padding-right: -0.7647%;
+}
+.group-17 .grid-3 {
+  padding-right: -0.647%;
+}
+.group-17 .grid-4 {
+  padding-right: -0.5294%;
+}
+.group-17 .grid-5 {
+  padding-right: -0.4117%;
+}
+.group-17 .grid-6 {
+  padding-right: -0.2941%;
+}
+.group-17 .grid-7 {
+  padding-right: -0.1764%;
+}
+.group-17 .grid-8 {
+  padding-right: -0.0588%;
+}
+.group-17 .grid-9 {
+  padding-right: -0.9411%;
+}
+.group-17 .grid-10 {
+  padding-right: -0.8235%;
+}
+.group-17 .grid-11 {
+  padding-right: -0.7058%;
+}
+.group-17 .grid-12 {
+  padding-right: -0.5882%;
+}
+.group-17 .grid-13 {
+  padding-right: -0.4705%;
+}
+.group-17 .grid-14 {
+  padding-right: -0.3529%;
+}
+.group-17 .grid-15 {
+  padding-right: -0.2352%;
+}
+.group-17 .grid-16 {
+  padding-right: -0.1176%;
+}
+.group-17 .grid-17 {
+  padding-right: -0%;
+}
+
+/* for grouped 16 columns */
+.group-16 .grid-1 {
+  padding-right: -0.25%;
+}
+.group-16 .grid-2 {
+  padding-right: -0.5%;
+}
+.group-16 .grid-3 {
+  padding-right: -0.75%;
+}
+.group-16 .grid-4 {
+  padding-right: -0%;
+}
+.group-16 .grid-5 {
+  padding-right: -0.25%;
+}
+.group-16 .grid-6 {
+  padding-right: -0.5%;
+}
+.group-16 .grid-7 {
+  padding-right: -0.75%;
+}
+.group-16 .grid-8 {
+  padding-right: -0%;
+}
+.group-16 .grid-9 {
+  padding-right: -0.25%;
+}
+.group-16 .grid-10 {
+  padding-right: -0.5%;
+}
+.group-16 .grid-11 {
+  padding-right: -0.75%;
+}
+.group-16 .grid-12 {
+  padding-right: -0%;
+}
+.group-16 .grid-13 {
+  padding-right: -0.25%;
+}
+.group-16 .grid-14 {
+  padding-right: -0.5%;
+}
+.group-16 .grid-15 {
+  padding-right: -0.75%;
+}
+.group-16 .grid-16 {
+  padding-right: -0%;
+}
+
+/* for grouped 15 columns */
+.group-15 .grid-1 {
+  padding-right: -0.6666%;
+}
+.group-15 .grid-2 {
+  padding-right: -0.3333%;
+}
+.group-15 .grid-3 {
+  padding-right: -0%;
+}
+.group-15 .grid-4 {
+  padding-right: -0.6666%;
+}
+.group-15 .grid-5 {
+  padding-right: -0.3333%;
+}
+.group-15 .grid-6 {
+  padding-right: -0%;
+}
+.group-15 .grid-7 {
+  padding-right: -0.6666%;
+}
+.group-15 .grid-8 {
+  padding-right: -0.3333%;
+}
+.group-15 .grid-9 {
+  padding-right: -0%;
+}
+.group-15 .grid-10 {
+  padding-right: -0.6666%;
+}
+.group-15 .grid-11 {
+  padding-right: -0.3333%;
+}
+.group-15 .grid-12 {
+  padding-right: -0%;
+}
+.group-15 .grid-13 {
+  padding-right: -0.6666%;
+}
+.group-15 .grid-14 {
+  padding-right: -0.3333%;
+}
+.group-15 .grid-15 {
+  padding-right: -0%;
+}
+
+/* for grouped 14 columns */
+.group-14 .grid-1 {
+  padding-right: -0.1428%;
+}
+.group-14 .grid-2 {
+  padding-right: -0.2857%;
+}
+.group-14 .grid-3 {
+  padding-right: -0.4285%;
+}
+.group-14 .grid-4 {
+  padding-right: -0.5714%;
+}
+.group-14 .grid-5 {
+  padding-right: -0.7142%;
+}
+.group-14 .grid-6 {
+  padding-right: -0.8571%;
+}
+.group-14 .grid-7 {
+  padding-right: -0%;
+}
+.group-14 .grid-8 {
+  padding-right: -0.1428%;
+}
+.group-14 .grid-9 {
+  padding-right: -0.2857%;
+}
+.group-14 .grid-10 {
+  padding-right: -0.4285%;
+}
+.group-14 .grid-11 {
+  padding-right: -0.5714%;
+}
+.group-14 .grid-12 {
+  padding-right: -0.7142%;
+}
+.group-14 .grid-13 {
+  padding-right: -0.8571%;
+}
+.group-14 .grid-14 {
+  padding-right: -0%;
+}
+
+/* for grouped 13 columns */
+.group-13 .grid-1 {
+  padding-right: -0.6923%;
+}
+.group-13 .grid-2 {
+  padding-right: -0.3846%;
+}
+.group-13 .grid-3 {
+  padding-right: -0.0769%;
+}
+.group-13 .grid-4 {
+  padding-right: -0.7692%;
+}
+.group-13 .grid-5 {
+  padding-right: -0.4615%;
+}
+.group-13 .grid-6 {
+  padding-right: -0.1538%;
+}
+.group-13 .grid-7 {
+  padding-right: -0.8461%;
+}
+.group-13 .grid-8 {
+  padding-right: -0.5384%;
+}
+.group-13 .grid-9 {
+  padding-right: -0.2307%;
+}
+.group-13 .grid-10 {
+  padding-right: -0.923%;
+}
+.group-13 .grid-11 {
+  padding-right: -0.6153%;
+}
+.group-13 .grid-12 {
+  padding-right: -0.3076%;
+}
+.group-13 .grid-13 {
+  padding-right: -0%;
+}
+
+/* for grouped 12 columns */
+.group-12 .grid-1 {
+  padding-right: -0.3333%;
+}
+.group-12 .grid-2 {
+  padding-right: -0.6666%;
+}
+.group-12 .grid-3 {
+  padding-right: -0%;
+}
+.group-12 .grid-4 {
+  padding-right: -0.3333%;
+}
+.group-12 .grid-5 {
+  padding-right: -0.6666%;
+}
+.group-12 .grid-6 {
+  padding-right: -0%;
+}
+.group-12 .grid-7 {
+  padding-right: -0.3333%;
+}
+.group-12 .grid-8 {
+  padding-right: -0.6666%;
+}
+.group-12 .grid-9 {
+  padding-right: -0%;
+}
+.group-12 .grid-10 {
+  padding-right: -0.3333%;
+}
+.group-12 .grid-11 {
+  padding-right: -0.6666%;
+}
+.group-12 .grid-12 {
+  padding-right: -0%;
+}
+
+/* for grouped 11 columns */
+.group-11 .grid-1 {
+  padding-right: -0.0909%;
+}
+.group-11 .grid-2 {
+  padding-right: -0.1818%;
+}
+.group-11 .grid-3 {
+  padding-right: -0.2727%;
+}
+.group-11 .grid-4 {
+  padding-right: -0.3636%;
+}
+.group-11 .grid-5 {
+  padding-right: -0.4545%;
+}
+.group-11 .grid-6 {
+  padding-right: -0.5454%;
+}
+.group-11 .grid-7 {
+  padding-right: -0.6363%;
+}
+.group-11 .grid-8 {
+  padding-right: -0.7272%;
+}
+.group-11 .grid-9 {
+  padding-right: -0.8181%;
+}
+.group-11 .grid-10 {
+  padding-right: -0.909%;
+}
+.group-11 .grid-11 {
+  padding-right: -0%;
+}
+
+/* for grouped 10 columns */
+.group-10 .grid-1 {
+  padding-right: -0%;
+}
+.group-10 .grid-2 {
+  padding-right: -0%;
+}
+.group-10 .grid-3 {
+  padding-right: -0%;
+}
+.group-10 .grid-4 {
+  padding-right: -0%;
+}
+.group-10 .grid-5 {
+  padding-right: -0%;
+}
+.group-10 .grid-6 {
+  padding-right: -0%;
+}
+.group-10 .grid-7 {
+  padding-right: -0%;
+}
+.group-10 .grid-8 {
+  padding-right: -0%;
+}
+.group-10 .grid-9 {
+  padding-right: -0%;
+}
+.group-10 .grid-10 {
+  padding-right: -0%;
+}
+
+/* for grouped 9 columns */
+.group-9 .grid-1 {
+  padding-right: -0.1111%;
+}
+.group-9 .grid-2 {
+  padding-right: -0.2222%;
+}
+.group-9 .grid-3 {
+  padding-right: -0.3333%;
+}
+.group-9 .grid-4 {
+  padding-right: -0.4444%;
+}
+.group-9 .grid-5 {
+  padding-right: -0.5555%;
+}
+.group-9 .grid-6 {
+  padding-right: -0.6666%;
+}
+.group-9 .grid-7 {
+  padding-right: -0.7777%;
+}
+.group-9 .grid-8 {
+  padding-right: -0.8888%;
+}
+.group-9 .grid-9 {
+  padding-right: -0%;
+}
+
+/* for grouped 8 columns */
+.group-8 .grid-1 {
+  padding-right: -0.5%;
+}
+.group-8 .grid-2 {
+  padding-right: -0%;
+}
+.group-8 .grid-3 {
+  padding-right: -0.5%;
+}
+.group-8 .grid-4 {
+  padding-right: -0%;
+}
+.group-8 .grid-5 {
+  padding-right: -0.5%;
+}
+.group-8 .grid-6 {
+  padding-right: -0%;
+}
+.group-8 .grid-7 {
+  padding-right: -0.5%;
+}
+.group-8 .grid-8 {
+  padding-right: -0%;
+}
+
+/* for grouped 7 columns */
+.group-7 .grid-1 {
+  padding-right: -0.2857%;
+}
+.group-7 .grid-2 {
+  padding-right: -0.5714%;
+}
+.group-7 .grid-3 {
+  padding-right: -0.8571%;
+}
+.group-7 .grid-4 {
+  padding-right: -0.1428%;
+}
+.group-7 .grid-5 {
+  padding-right: -0.4285%;
+}
+.group-7 .grid-6 {
+  padding-right: -0.7142%;
+}
+.group-7 .grid-7 {
+  padding-right: -0%;
+}
+
+/* for grouped 6 columns */
+.group-6 .grid-1 {
+  padding-right: -0.6666%;
+}
+.group-6 .grid-2 {
+  padding-right: -0.3333%;
+}
+.group-6 .grid-3 {
+  padding-right: -0%;
+}
+.group-6 .grid-4 {
+  padding-right: -0.6666%;
+}
+.group-6 .grid-5 {
+  padding-right: -0.3333%;
+}
+.group-6 .grid-6 {
+  padding-right: -0%;
+}
+
+/* for grouped 5 columns */
+.group-5 .grid-1 {
+  padding-right: -0%;
+}
+.group-5 .grid-2 {
+  padding-right: -0%;
+}
+.group-5 .grid-3 {
+  padding-right: -0%;
+}
+.group-5 .grid-4 {
+  padding-right: -0%;
+}
+.group-5 .grid-5 {
+  padding-right: -0%;
+}
+
+/* for grouped 4 columns */
+.group-4 .grid-1 {
+  padding-right: -0%;
+}
+.group-4 .grid-2 {
+  padding-right: -0%;
+}
+.group-4 .grid-3 {
+  padding-right: -0%;
+}
+.group-4 .grid-4 {
+  padding-right: -0%;
+}
+
+/* for grouped 3 columns */
+.group-3 .grid-1 {
+  padding-right: -0.3333%;
+}
+.group-3 .grid-2 {
+  padding-right: -0.6666%;
+}
+.group-3 .grid-3 {
+  padding-right: -0%;
+}
+
+/* for grouped 2 columns */
+.group-2 .grid-1 {
+  padding-right: -0%;
+}
+.group-2 .grid-2 {
+  padding-right: -0%;
+}
+
+/* for grouped 1 columns */
+.group-1 .grid-1 {
+  padding-right: -0%;
+}

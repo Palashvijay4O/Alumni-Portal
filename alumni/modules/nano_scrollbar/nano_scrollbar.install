@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Nano Scrollbar module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function nano_scrollbar_requirements($phase) {
+  $settings = variable_get('nano_scrollbar_settings');
+  $mobile_browser = $settings['mobile_browser'];
+  $requirements = array();
+  $t = get_t();
+
+  if ($phase == 'runtime') {
+    $library = libraries_detect('nano_scrollbar');
+    $requirements['nano_scrollbar'] = array(
+      'title' => $t('Nano Scrollbar Module - nanoScroller jQuery Plugin'),
+    );
+    if ($library['installed']) {
+      $requirements['nano_scrollbar']['value'] = $library['version'];
+      $requirements['nano_scrollbar']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['nano_scrollbar']['value'] = $library['error'];
+      $requirements['nano_scrollbar']['description'] = $library['error message'];
+      $requirements['nano_scrollbar']['severity'] = REQUIREMENT_ERROR;
+    }
+  }
+  if ($mobile_browser === 1) {
+
+    if ($phase == 'runtime') {
+      $library = libraries_detect('overthrowmin');
+      $requirements['overthrowmin'] = array(
+        'title' => $t('Nano Scrollbar Module - Overthrow jQuery Plugin'),
+      );
+      if ($library['installed']) {
+        $requirements['overthrowmin']['value'] = $library['version'];
+        $requirements['overthrowmin']['severity'] = REQUIREMENT_OK;
+      }
+      else {
+        $requirements['overthrowmin']['value'] = $library['error'];
+        $requirements['overthrowmin']['description'] = $library['error message'];
+        $requirements['overthrowmin']['severity'] = REQUIREMENT_ERROR;
+      }
+    }
+  }
+  return $requirements;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function nano_scrollbar_uninstall() {
+  // Remove persistent variables.
+  variable_del('nano_scrollbar_settings');
+  variable_del('nano_scrollbar_content');
+}

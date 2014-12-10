@@ -1,0 +1,3 @@
+Nano Scrollbar 7.x-1.x-dev, 2014-06-20
+-----------------------------
+by shyam kumar kunkala. First module release.

@@ -1,0 +1,12 @@
+Location Map module
+
+**Installation:
+1. Unpack the Location Map folder and contents in the modules directory of your Drupal installation (usually /sites/all/modules).
+2. Enable the Location Map module in the administration tools (http://www.example.com/admin/build/modules).
+3. If you're not using Drupal's default administrative account, make sure your user account has the "Administer location map" permission (http://example.com/admin/user/permissions).
+4. Set your location in the Location Map settings page (http://www.example.com/admin/settings/locationmap).
+5. If you wish to use the block provided that links to your Location Map page, navigate to the Block administration section and enable the block, assigning it to the desired region (http://www.example.com/admin/build/block).
+
+Visit http://www.example.com/locationmap to see the map and fine tune your position. [Note: Fine tuning is not yet working in the initial Drupal 7 version.] If you wish to have this page appear at a different URL, set a URL alias at http://www.example.com/admin/config/search/path
+
+Finally, add the block "Location Map static image block" to some region of the website if you wish.

@@ -1,0 +1,215 @@
+<?php
+/**
+ * @file
+ * Neat Scrollbar module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function neat_scrollbar_help($path, $arg) {
+  switch ($path) {
+    // Help for the Neat Scrollbar module.
+    case 'admin/help#neat_scrollbar':
+      $output = '<p>' . t('The Neat Scrollbar adds contemporary styling to in-page scrollbars.  Authorized users and Adminstrators can define various settings.');
+      $output .= t('For configuration options see the Neat Scrollbar <a href="@config">options & settings page</a>.',
+                     array('@config' => url('admin/config/user-interface/neat_scrollbar'))) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function neat_scrollbar_menu() {
+  $items = array();
+  $items['admin/config/user-interface/neat_scrollbar'] = array(
+    'title' => 'Neat Scrollbar',
+    'description' => 'Neat Scrollbar Theming & Configuration',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('neat_scrollbar_settings'),
+    'access arguments' => array('administer neat scrollbar'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'neat_scrollbar.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function neat_scrollbar_permission() {
+  return array(
+    'administer neat scrollbar' => array(
+      'title' => t('Administer Neat Scrollbar Options & Settings'),
+      'description' => t('Allows a user to configure and apply Neat Scrollbar to content.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function neat_scrollbar_libraries_info() {
+  $libraries['neat_scrollbar'] = array(
+    'name' => 'Neat Scrollbar Module - mCustomScrollbar jQuery Plugin',
+    'vendor url' => 'http://manos.malihu.gr/jquery-custom-content-scroller/',
+    'download url' => 'http://manos.malihu.gr/tuts/m-custom-scrollbar-plugin.zip',
+    'version arguments' => array(
+      'file' => 'jquery.mCustomScrollbar.js',
+      // Get version with regex patttern e.g. 2.8.2 .
+      'pattern' => '#\b[vV]ersion:\s*(\d.+){1}#',
+      'lines' => 4,
+      'cols' => 50,
+    ),
+    'files' => array(
+      'js' => array(
+        'jquery.mCustomScrollbar.min.js',
+      ),
+      'css' => array(
+        'jquery.mCustomScrollbar.css',
+      ),
+    ),
+    'variants' => array(
+      'minified' => array(
+        'files' => array(
+          'js' => array(
+            'jquery.mCustomScrollbar.min.js',
+          ),
+        ),
+      ),
+      'source' => array(
+        'files' => array(
+          'js' => array(
+            'jquery.mCustomScrollbar.js',
+          ),
+        ),
+      ),
+    ),
+  );
+  $libraries['mousewheel'] = array(
+    'name' => 'Neat Scrollbar Module - jQuery Mousewheel Plugin',
+    'vendor url' => 'http://brandonaaron.net/',
+    'download url' => 'https://raw.github.com/malihu/malihu-custom-scrollbar-plugin/master/js/minified/jquery.mousewheel.min.js',
+    'version arguments' => array(
+      'file' => 'jquery.mousewheel.min.js',
+      // Get version with regex patttern e.g. 3.0.6 .
+      'pattern' => '#[vV]ersion:\s*(\d.+){1}#',
+    ),
+    'files' => array(
+      'js' => array(
+        'jquery.mousewheel.min.js',
+      ),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Check if the Neat Scrollbar library has been loaded, and warn if missing.
+ * 
+ * @return bool
+ *   A boolean indicating the Neat Scrollbar loaded status.
+ */
+function neat_scrollbar_loaded() {
+  if (($library = libraries_load('neat_scrollbar')) && !empty($library['loaded'])) {
+    return TRUE;
+  }
+  elseif (user_access('administer neat scrollbar')) {
+    // OOPS Warning!
+    // Alert the authorized user/administrator to the abscence of the library.
+    drupal_set_message(t('The Neat Scrollbar Library could not be found. 
+                          Please check the installation instructions and the <a href="@status">Status Report</a>.',
+                          array('@status' => url('admin/reports/status'))), 'warning');
+  }
+}
+
+/**
+ * Check if the Neat Scrollbar (Mousewheel) library has been loaded.
+ * 
+ * @return bool
+ *   A boolean indicating the mousewheel loaded status.
+ */
+function neat_scrollbar_mousewheel_loaded() {
+  if (($library = libraries_load('mousewheel')) && !empty($library['loaded'])) {
+    return TRUE;
+  }
+  elseif (user_access('administer neat scrollbar')) {
+    // OOPS Warning!
+    // Alert the authorized user/administrator to the abscence of the library.
+    drupal_set_message(t('The Mousewheel Library (required by the Neat Scrollbar Module) could not be found.
+                          Please check the installation instructions and the <a href="@status">Status Report</a>',
+                          array('@status' => url('admin/reports/status'))), 'warning');
+  }
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function neat_scrollbar_page_alter(&$page) {
+  // Retrieve form settings.
+  $settings = variable_get('neat_scrollbar_settings', array());
+  $content = variable_get('neat_scrollbar_content', array());
+  $advanced = variable_get('neat_scrollbar_advanced_settings', array());
+  // Create array for Drupal.settings.
+  $neat_scrollbar_set = array_merge($settings, $content, $advanced);
+  $current_path = current_path();
+  if (!empty($settings)) {
+    $mousewheel_status = $settings['mousewheel_status'];
+    $round_dragger = $settings['round_dragger'];
+    $stylesheet = $content['default_stylesheet'];
+    $vert_css = $content['vertical_css'];
+  }
+  $on_off_switch = variable_get('neat_scrollbar_switch');
+  // Load the primary library as defined with hook_libraries_info above.
+  if (neat_scrollbar_loaded() && !path_is_admin($current_path)) {
+    libraries_load('neat_scrollbar');
+  }
+  // Check availability and load mousewheel plugin library, if required.
+  if (!empty($mousewheel_status)) {
+    neat_scrollbar_mousewheel_loaded();
+  }
+  if ((($library = libraries_load('mousewheel')) && !empty($library['loaded'])) && !empty($mousewheel_status)) {
+    libraries_load('mousewheel');
+  }
+  // Only add JS & CSS if library exists and module's settings are switched on.
+  if ((($library = libraries_load('neat_scrollbar')) && !empty($library['loaded'])) && !path_is_admin($current_path) && empty($on_off_switch)) {
+    if (!empty($stylesheet)) {
+      drupal_add_css(drupal_get_path('module', 'neat_scrollbar') . '/css/neat_scrollbar_default.css');
+    }
+    // Apply round dragger.
+    if (!empty($round_dragger)) {
+      drupal_add_css(drupal_get_path('module', 'neat_scrollbar') . '/css/neat_scrollbar_dragger_styles.css');
+    }
+    // Add javascript files and settings.
+    drupal_add_js(drupal_get_path('module', 'neat_scrollbar') . '/js/neat_scrollbar_default.js');
+    drupal_add_js(array('neatScrollbarSet' => $neat_scrollbar_set), 'setting');
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function neat_scrollbar_preprocess_node(&$vars) {
+  // Get the page status, TRUE if a full page.
+  // Prevents doubling up if node teasers are in sidebars with site-wide active.
+  $page = $vars['page'];
+  // Retrieve form settings for content.
+  $content_settings = variable_get('neat_scrollbar_content');
+  $scrollbar_node_add = $content_settings['nodes'];
+  if (node_is_page($vars['node']) && !empty($scrollbar_node_add) && $page == TRUE) {
+    $vars['classes_array'][] = 'neat-scrollbar';
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function neat_scrollbar_preprocess_block(&$vars) {
+  // Retrieve form settings for content.
+  $content_settings = variable_get('neat_scrollbar_content');
+  $scrollbar_blocks_add = $content_settings['blocks'];
+  if ($vars['classes_array'][1] === 'block-block' && !empty($scrollbar_blocks_add)) {
+    $vars['classes_array'][] = 'neat-scrollbar-blocks';
+  }
+}

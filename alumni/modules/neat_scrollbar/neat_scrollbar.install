@@ -1,0 +1,60 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the Neat Scrollbar module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function neat_scrollbar_requirements($phase) {
+  $settings = variable_get('neat_scrollbar_settings');
+  $mousewheel_status = $settings['mousewheel_status'];
+  $requirements = array();
+  $t = get_t();
+
+  if ($phase == 'runtime') {
+    $library = libraries_detect('neat_scrollbar');
+    $requirements['neat_scrollbar'] = array(
+      'title' => $t('Neat Scrollbar Module - mCustomScrollbar jQuery Plugin'),
+    );
+    if ($library['installed']) {
+      $requirements['neat_scrollbar']['value'] = $library['version'];
+      $requirements['neat_scrollbar']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['neat_scrollbar']['value'] = $library['error'];
+      $requirements['neat_scrollbar']['description'] = $library['error message'];
+      $requirements['neat_scrollbar']['severity'] = REQUIREMENT_ERROR;
+    }
+  }
+  if ($mousewheel_status === 1) {
+
+    if ($phase == 'runtime') {
+      $library = libraries_detect('mousewheel');
+      $requirements['mousewheel'] = array(
+        'title' => $t('Neat Scrollbar Module - Mousewheel jQuery Plugin'),
+      );
+      if ($library['installed']) {
+        $requirements['mousewheel']['value'] = $library['version'];
+        $requirements['mousewheel']['severity'] = REQUIREMENT_OK;
+      }
+      else {
+        $requirements['mousewheel']['value'] = $library['error'];
+        $requirements['mousewheel']['description'] = $library['error message'];
+        $requirements['mousewheel']['severity'] = REQUIREMENT_ERROR;
+      }
+    }
+  }
+  return $requirements;
+}
+/**
+ * Implements hook_uninstall().
+ */
+function neat_scrollbar_uninstall() {
+  // Remove persistent variables.
+  variable_del('neat_scrollbar_settings');
+  variable_del('neat_scrollbar_switch');
+  variable_del('neat_scrollbar_content');
+  variable_del('neat_scrollbar_advanced_settings');
+}

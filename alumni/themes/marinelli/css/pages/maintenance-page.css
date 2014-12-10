@@ -1,0 +1,53 @@
+/*
+*
+*
+*	maintenance page
+*
+*/
+
+/*	Structure
+-------------------------------------------------------------- */
+
+body#maintenance-page{
+	margin: 0;
+	padding: 0;
+}
+
+#maintenance-page-left,
+#maintenance-page-right{
+	float:left;
+	width:50%;
+}
+
+#maintenance-page-left form{
+	float: right;
+}
+
+.maintenance-page-panel{
+	padding: 40px;
+}
+
+#maintenance-page h1{
+	margin-top: 15px;
+	margin-bottom: 0;
+}
+
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+body#maintenance-page{
+	color:black;
+	background: white url(../../img/backgrounds/maintenance-page.png) 50% top repeat-y;
+}
+
+#maintenance-page-left{
+	color:white;
+}
+
+#maintenance-page h1{
+	font-weight:bold;
+}
+
+#maintenance-page input.form-text{
+	width: 250px;
+}

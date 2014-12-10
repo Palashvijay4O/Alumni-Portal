@@ -1,0 +1,13 @@
+/**
+ * @file
+ * Neat Scrollbar Implementation of site-wide styles for nodes & blocks.
+ */
+
+.neat-scrollbar {
+  height: 400px;
+  overflow: hidden;
+}
+.neat-scrollbar-blocks {
+  height: 400px;
+  overflow: hidden;
+}

@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the user_field_privacy module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function user_field_privacy_schema() {
+  $schema['user_field_privacy_value'] = array(
+    'fields' => array(
+      'fid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'default' => 0,
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'default' => 0,
+      ),
+      'private' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('fid', 'uid'),
+    'indexes' => array(
+      'fid' => array('fid'),
+      'uid' => array('uid'),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Converts the DB settings to proper Field API settings for exportability.
+ */
+function user_field_privacy_update_7000() {
+  // Not using Batch API and/or update hooks' $sandbox: most likely we do not
+  // have that many fields which would cause PHP timeouts.
+  $query = db_select('user_field_privacy_field', 'ufpf');
+  $query->fields('ufpf', array('privacy'));
+  $field_config_instance = $query->innerJoin('field_config_instance', 'fci', '%alias.id = ufpf.fid');
+  $query->fields('fci', array('field_name'));
+  $result = $query->execute();
+  while ($field = $result->fetchObject()) {
+    $instance = field_info_instance('user', $field->field_name, 'user');
+    $instance['settings']['user_field_privacy'] = $field->privacy;
+    field_update_instance($instance);
+  }
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Drops the no longer needed user_field_privacy_field table.
+ */
+function user_field_privacy_update_7001() {
+  db_drop_table('user_field_privacy_field');
+}

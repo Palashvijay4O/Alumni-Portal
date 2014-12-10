@@ -1,0 +1,12 @@
+name = OG test module
+description = Functionality to assist OG testing.
+core = 7.x
+dependencies[] = og
+hidden = TRUE
+
+; Information added by drupal.org packaging script on 2012-11-18
+version = "7.x-2.0-beta3"
+core = "7.x"
+project = "og"
+datestamp = "1353231456"
+

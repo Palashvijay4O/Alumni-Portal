@@ -1,0 +1,88 @@
+/*
+*
+* block styles
+*
+*/
+
+
+/*	Structure
+-------------------------------------------------------------- */
+
+.block{
+	margin-bottom:15px;
+}
+
+#advertise.unlimited .block{
+	padding:5px;
+	margin-bottom:0px;
+}
+
+.block .title{
+	margin:0px;
+	padding-bottom:3px;
+	margin-bottom: 10px;
+}
+
+.blockhide .title{ /* blocks with no style (based on theme settings) */
+	visibility:hidden; /* do not remove hidden titles */
+	position: absolute;
+	left:-5000px;
+	height:0em;
+}
+
+.utility .block{
+	margin:0px;
+}
+
+#block-user-login .block-title{ /* login block */
+	padding:5px 10px 5px 0px;
+}
+
+#block-user-login .title{ /* login block */
+	margin-bottom:0px;
+	margin-left:10px;
+}
+
+#block-user-login .content{ /* login block */
+	padding:10px;
+}
+
+#block-user-login .form-item{ /* login block */
+	margin-top: 0px;
+}
+
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+.block .title{
+	font-size: 1.5em;
+	border-bottom:1px solid #e2e2e2;
+}
+
+#advertise.unlimited .block .title{
+	border-bottom:none;
+}
+
+#block-user-login .title{
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color:white;
+	border:none;
+	background: url(../img/icons/key.png) no-repeat top right;
+}
+
+#block-user-login .block-title{
+	background:#054b81;
+}
+
+#block-user-login .content{
+	background: #eee;
+	border-left:1px solid #e2e2e2;
+	border-right:1px solid #e2e2e2;
+	border-bottom:1px solid #e2e2e2;
+}
+
+.outsidecontent .block .title{
+	border-bottom:none;
+}

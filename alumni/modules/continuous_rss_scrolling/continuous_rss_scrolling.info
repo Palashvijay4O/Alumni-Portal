@@ -1,0 +1,8 @@
+; $Id: continuous_rss_scrolling.info,v 1.0 2012/02/22 22:22:22 Exp $
+name = "Continuous rss scrolling"
+description = "Continuous rss scrolling drupal module will create the vertical scrolling reel gallery in the drupal website using the given rss feed."
+core = 7.x
+version = "7.x-1.0"
+project = "continuous_rss_scrolling"
+package = continuous rss scrolling
+configure = admin/structure/continuous_rss_scrolling

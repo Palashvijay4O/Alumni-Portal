@@ -1,0 +1,125 @@
+name = Marinelli
+description = A clean theme still usable over 4000m!
+core = 7.x
+engine = phptemplate
+screenshot = screenshot.png
+
+stylesheets[all][] = css/common.css
+stylesheets[all][] = css/links.css
+stylesheets[all][] = css/typography.css
+stylesheets[all][] = css/forms.css
+stylesheets[all][] = css/drupal.css
+stylesheets[all][] = css/layout.css
+stylesheets[all][] = css/primary-links.css
+stylesheets[all][] = css/slideshow.css
+stylesheets[all][] = css/secondary-links.css
+stylesheets[all][] = css/blocks.css
+stylesheets[all][] = css/node.css
+stylesheets[all][] = css/comments.css
+stylesheets[all][] = css/pages/maintenance-page.css
+
+stylesheets[print][] = css/print/print.css
+
+scripts[] = js/marinelli_marinelli.js
+scripts[] = js/topregion/marinelli_topregion.js
+
+
+regions[topbar] = Topbar
+regions[utility_top] = Utility Menu (top)
+regions[utility_bottom] = Utility Menu (Bottom)
+regions[search] = Search Region
+regions[advertise] = Advertise
+regions[overcontent] = Over Content
+regions[overnode] = Over Node
+regions[highlight] = Highlight
+regions[content] = Content
+regions[undernode] = Under Node
+regions[sidebar_first] = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[oversidebars] = Over Sidebars
+regions[undersidebars] = Under Sidebars
+regions[undercontent] = Under Content
+regions[footer] = Footer
+
+settings[bartext] = Slide Down
+settings[bartext2] = Slide Up
+settings[breadcrumb_title] = 1
+settings[breadcrumb_title_length] = 50
+settings[layout_width] = 1
+settings[layout_type] = 1
+settings[blocks] = 2
+settings[outside_tags] = 0
+settings[title_tags] = 0
+settings[css] = 1
+settings[css_typo] = 1
+settings[sticky_text] = Sticky
+settings[menu_type] = 1
+settings[menu_element] = main-menu
+settings[menu_alt_class] = 0
+settings[menu_headings] = 1
+settings[banner_usage] = 1
+settings[banner_type] = 0
+settings[banner_effect] = fade
+settings[banner_speed] = 1000
+settings[banner_delay] = 4000
+settings[banner_pause] = 1
+settings[banner_showtext] = 1
+settings[banner_shownavigation] = 1
+
+; Defalt banner settings
+; For each banner you can set:
+;  * image_path: (required)
+;      path relative to theme where foud image
+;  * image_title:
+;      Banner title to display
+;      default = ''
+;  * image_description:
+;      Banner description to display
+;      default = ''
+;  * image_url:
+;      Url link into banner
+;      default = <front>
+;  * image_visibility:
+;      Set where display banner
+;      default = *
+;  * image_pubilshed:
+;      Default visibility of banner
+;      deafult = FALSE
+
+settings[default_banners][1][image_path]        = img/advertise/1.jpg
+settings[default_banners][1][image_title]       = Title for image 1
+settings[default_banners][1][image_description] = Description for image 1
+settings[default_banners][1][image_published]   = TRUE
+
+settings[default_banners][2][image_path]        = img/advertise/2.jpg
+settings[default_banners][2][image_title]       = Title for image 2
+settings[default_banners][2][image_description] = Description for image 2
+settings[default_banners][2][image_published]   = TRUE
+
+settings[default_banners][3][image_path]        = img/advertise/3.jpg
+settings[default_banners][3][image_title]       = Title for image 3
+settings[default_banners][3][image_description] = Description for image 3
+settings[default_banners][3][image_published]   = TRUE
+
+settings[default_banners][4][image_path]        = img/advertise/4.jpg
+settings[default_banners][4][image_title]       = Title for image 4
+settings[default_banners][4][image_description] = Description for image 4
+settings[default_banners][4][image_published]   = TRUE
+
+settings[default_banners][5][image_path]        = img/advertise/5.jpg
+settings[default_banners][5][image_title]       = Title for image 5
+settings[default_banners][5][image_description] = Description for image 5
+settings[default_banners][5][image_published]   = TRUE
+
+settings[default_banners][6][image_path]        = img/advertise/6.jpg
+settings[default_banners][6][image_title]       = Title for image 6
+settings[default_banners][6][image_description] = Description for image 6
+settings[default_banners][6][image_published]   = TRUE
+
+
+; Information added by drupal.org packaging script on 2011-06-08
+version = "7.x-3.0-beta11"
+core = "7.x"
+project = "marinelli"
+datestamp = "1307567519"
+

@@ -1,0 +1,13 @@
+name = LDAP Help
+description = LDAP Help for configuration and reporting issues.
+package = Lightweight Directory Access Protocol
+core = 7.x
+
+dependencies[] = ldap_servers
+
+; Information added by drupal.org packaging script on 2012-11-21
+version = "7.x-2.0-beta2"
+core = "7.x"
+project = "ldap"
+datestamp = "1353481650"
+

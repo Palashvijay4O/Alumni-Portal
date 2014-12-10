@@ -1,0 +1,11 @@
+#marquee-scroller {
+  background-color: #000000;
+  color: rgba(128,27,0,1);
+	 font-size:14px;
+	 font-weight:bold;
+}
+
+#marquee-scroller-inner {
+  padding: 5px;
+background:#FFF;
+}

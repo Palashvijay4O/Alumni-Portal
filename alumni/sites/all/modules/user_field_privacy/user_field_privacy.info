@@ -1,0 +1,12 @@
+name = User Field Privacy
+description = Provides options for users to override visibility of their own fields.
+dependencies[] = user
+dependencies[] = field
+core = 7.x
+
+; Information added by drupal.org packaging script on 2012-02-24
+version = "7.x-1.2"
+core = "7.x"
+project = "user_field_privacy"
+datestamp = "1330112446"
+

@@ -1,0 +1,213 @@
+/* All Responsive
+================================================== */  
+@media only screen and (max-width: 959px) {
+    
+  /*hide things*/
+  #navigation ul {
+    display: none;
+  }
+
+  #toplink {
+    display: none !important;
+  }
+    
+  /*logo*/
+  #logo {
+    text-align: center;
+  }
+
+  #logo img {
+    display: inline-block;
+  }
+
+  #logo h1 a, #logo h2 a {
+    display: block;
+    float: none;
+  }
+    
+  /*navigation top menu*/
+  #navigation {
+    height: 70px;
+    width: 100%;
+    position: inherit;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-top: 0;
+    background: #e73420 url("../images/responsive-nav.png") right center no-repeat;
+  }
+
+  #navigation .selector {
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    line-height: 70px;
+    text-indent: 40px;
+  }
+
+  #navigation .selector {
+    height: 50px;
+    width: 100%;
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    *display: inline;
+    cursor: pointer !important;
+  }
+
+  #navigation .selector:hover {
+    opacity: 1;
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+  }
+
+  #navigation .selector select:focus {
+    outline: 0;
+  }
+
+  #navigation .selector span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #navigation .selector select {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 70px;
+    background: none;
+    width: 100%;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #666 !important;
+    cursor: pointer;
+  }
+
+  #navigation .selector {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  #navigation .selector option {
+    background: #000;
+    -webkit-appearance: none;
+    padding: 10px 40px;
+    border: none;
+    border-bottom: 1px solid #222;
+  }
+    
+  /*display dropdown nav*/
+  #navigation .selector {
+    display: inline-block;
+  }
+  
+}
+
+
+/* Tablet (Portrait) = Design for a width of 730px
+================================================== */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+  /*main*/
+  #wrap {
+    width: 690px;
+  }
+  #content {
+    width: 380px;
+  }
+  #sidebar {
+    width: 190px;
+  }
+  .sidebar-bg{
+    background-image: url("../images/sidebar-bg-tablet.png");
+  }
+
+  .meta li{
+    display: block;
+  }
+  
+    
+  /*footer*/
+  .preface-block, .footer-block {
+    float: left;
+    width: 190px;
+    margin-right: 20px;
+  }
+  
+  
+}
+
+
+
+/* Mobile (Portrait) = Design for a width of 280px
+================================================== */
+
+@media only screen and (max-width: 767px) {
+
+  /*main*/
+  #header-social{
+    display: none;
+  }
+  #wrap {
+    width: 280px;
+  }
+  #content {
+    width: 100%;
+  }
+  .node-teaser img {
+    float: none;
+  }
+  ul.inline li {
+    display: block;
+    padding: 5px;
+  }
+
+  #sidebar {
+    width: 100%;
+  }
+  .preface-block, .footer-block {
+    width: 100%;
+  }
+
+  .comment .attribution, .comment .comment-text { 
+    display: inline-block;
+  }
+  
+  .sidebar-bg{
+    background-image: none;
+    margin-bottom: 0;
+  }
+  
+  #sidebar{
+    width: 100%;
+    background: #f9f9f9;
+    margin: 30px -30px -30px;
+    padding: 30px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .meta li{
+    display: block;
+  }
+  
+}
+
+
+/* Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+  #wrap {
+    width: 370px;
+  }
+
+}

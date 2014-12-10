@@ -1,0 +1,15 @@
+name = Neat Scrollbar
+description = Apply Contemporary Minimalist Scrollbars to Areas of Content.
+core = 7.x
+package = User Interface
+
+dependencies[] = libraries (>=2.x)
+
+configure = 'admin/config/user-interface/neat_scrollbar'
+
+; Information added by Drupal.org packaging script on 2014-03-13
+version = "7.x-1.6"
+core = "7.x"
+project = "neat_scrollbar"
+datestamp = "1394708013"
+

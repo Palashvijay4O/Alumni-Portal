@@ -1,0 +1,200 @@
+<?php
+
+/**
+ * @file
+ * Nano Scrollbar module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function nano_scrollbar_help($path, $arg) {
+  switch ($path) {
+    // Help for the Nano Scrollbar module.
+    case 'admin/help#Nano_scrollbar':
+      $output = '<p>' . t('The Nano Scrollbar adds contemporary styling to in-page scrollbars.  Authorized users and Adminstrators can define various settings.');
+      $output .= t('For configuration options see the Nano Scrollbar <a href="@config">options & settings page</a>.', array('@config' => url('admin/config/user-interface/nano_scrollbar'))) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function nano_scrollbar_menu() {
+  $items = array();
+  $items['admin/config/user-interface/nano_scrollbar'] = array(
+    'title' => 'Nano Scrollbar',
+    'description' => 'Nano Scrollbar Theming & Configuration',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('nano_scrollbar_settings'),
+    'access arguments' => array('administer Nano scrollbar'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'nano_scrollbar.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function nano_scrollbar_permission() {
+  return array(
+    'administer Nano scrollbar' => array(
+      'title' => t('Administer Nano Scrollbar Options & Settings'),
+      'description' => t('Allows a user to configure and apply Nano Scrollbar to content.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function nano_scrollbar_libraries_info() {
+  $libraries['nano_scrollbar'] = array(
+    'name' => 'Nano Scrollbar Module - nanoScroller jQuery Plugin',
+    'vendor url' => 'http://jamesflorentino.github.io/nanoScrollerJS/',
+    'download url' => 'https://github.com/jamesflorentino/nanoScrollerJS/tree/master/bin/',
+    'version arguments' => array(
+      'file' => 'jquery.nanoscroller.js',
+      // Get version with regex patttern e.g. 0.8.0.
+      'pattern' => '#[v]*(\d.+){1}#',
+    ),
+    'files' => array(
+      'js' => array(
+        'jquery.nanoscroller.min.js',
+      ),
+      'css' => array(
+        'nanoscroller.css',
+      ),
+    ),
+    'variants' => array(
+      'minified' => array(
+        'files' => array(
+          'js' => array(
+            'jquery.nanoscroller.min.js',
+          ),
+        ),
+      ),
+      'source' => array(
+        'files' => array(
+          'js' => array(
+            'jquery.nanoscroller.js',
+          ),
+        ),
+      ),
+    ),
+  );
+  $libraries['overthrowmin'] = array(
+    'name' => 'Nano Scrollbar Module - jQuery overthrowmin Plugin',
+    'vendor url' => 'http://jamesflorentino.github.io/nanoScrollerJS/',
+    'download url' => 'https://github.com/jamesflorentino/nanoScrollerJS/tree/master/bin/',
+    'version arguments' => array(
+      'file' => 'overthrow.min.js',
+      // Get version with regex patttern e.g. 2.8.2 .
+      'pattern' => '#[v]*(\d.+){1}#',
+      'lines' => 5,
+      'cols' => 50,
+    ),
+    'files' => array(
+      'js' => array(
+        'overthrow.min.js',
+      ),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Check if the Nano Scrollbar library has been loaded, and warn if missing.
+ * return a boolean indicating the Nano Scrollbar loaded status.
+ */
+function nano_scrollbar_loaded() {
+  if (($library = libraries_load('nano_scrollbar')) && !empty($library['loaded'])) {
+    return TRUE;
+  }
+  elseif (user_access('administer nano scrollbar')) {
+    // OOPS Warning!
+    // Alert the authorized user/administrator to the abscence of the library.
+    drupal_set_message(t('The nano Scrollbar Library could not be found. 
+                          Please check the installation instructions and the <a href="@status">Status Report</a>.', array('@status' => url('admin/reports/status'))), 'warning');
+  }
+}
+
+/**
+ * Check if the Nano Scrollbar (Overthrow) library has been loaded.
+ * return a boolean indicating the mobile support status.
+ */
+function nano_scrollbar_overthrowmin_loaded() {
+  if (($library = libraries_load('overthrowmin')) && !empty($library['loaded'])) {
+    return TRUE;
+  }
+  elseif (user_access('administer nano scrollbar')) {
+    // OOPS Warning!
+    // Alert the authorized user/administrator to the abscence of the library.
+    drupal_set_message(t('The Overthrowmin Library (required by the Nano Scrollbar Module) could not be found.
+                          Please check the installation instructions and the <a href="@status">Status Report</a>', array('@status' => url('admin/reports/status'))), 'warning');
+  }
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function nano_scrollbar_page_alter(&$page) {
+  // Retrieve form settings.
+  $settings = variable_get('nano_scrollbar_settings', array());
+  $content = variable_get('nano_scrollbar_content', array());
+  // Create array for Drupal.settings.
+  $nano_scrollbar_set = array_merge($settings, $content);
+  $current_path = current_path();
+  if (!empty($settings)) {
+    $stylesheet = $content['default_stylesheet'];
+    $mobile_support = $settings['mobile_browser'];
+    if ($mobile_support) {
+      if (nano_scrollbar_overthrowmin_loaded() && !path_is_admin($current_path)) {
+        libraries_load('overthrowmin');
+      }
+    }
+  }
+  // Load the primary library as defined with hook_libraries_info above.
+  if (nano_scrollbar_loaded() && !path_is_admin($current_path)) {
+    libraries_load('nano_scrollbar');
+  }
+
+  // Only add JS & CSS if library exists and module's settings are switched on.
+  if (!path_is_admin($current_path)) {
+    if (!empty($stylesheet)) {
+      drupal_add_css(drupal_get_path('module', 'nano_scrollbar') . '/css/nano_scrollbar_default.css');
+    }
+    // Add javascript files and settings.
+    drupal_add_js(drupal_get_path('module', 'nano_scrollbar') . '/js/nano_scrollbar_default.js');
+    drupal_add_js(array('nanoScrollbarSet' => $nano_scrollbar_set), 'setting');
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function nano_scrollbar_preprocess_node(&$vars) {
+  // Get the page status, TRUE if a full page.
+  // Prevents doubling up if node teasers are in sidebars with site-wide active.
+  $page = $vars['page'];
+  // Retrieve form settings for content.
+  $content_settings = variable_get('nano_scrollbar_content');
+  $scrollbar_node_add = $content_settings['nodes'];
+  if (node_is_page($vars['node']) && !empty($scrollbar_node_add) && $page == TRUE) {
+    $vars['classes_array'][] = 'nano-scrollbar';
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function nano_scrollbar_preprocess_block(&$vars) {
+  // Retrieve form settings for content.
+  $content_settings = variable_get('nano_scrollbar_content');
+  $scrollbar_blocks_add = $content_settings['blocks'];
+  if ($vars['classes_array'][1] === 'block-block' && !empty($scrollbar_blocks_add)) {
+    $vars['classes_array'][] = 'nano-scrollbar-blocks';
+  }
+}

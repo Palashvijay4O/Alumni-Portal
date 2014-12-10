@@ -1,0 +1,11 @@
+#footer-wrapper
+{
+  padding-top: 0px;
+}
+
+#footer-wrapper .menu
+{
+  width: 330px;
+  margin-left: auto;
+  margin-right: 0;
+}

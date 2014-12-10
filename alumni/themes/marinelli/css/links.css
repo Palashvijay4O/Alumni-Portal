@@ -1,0 +1,41 @@
+/*
+*
+*
+*	links
+*
+*
+*/
+
+
+
+a,
+a:visited,
+li a.active{
+	color: #156aa3;
+	text-decoration: underline;
+	}
+
+a:hover {color:#163e55;}
+a:active {color:#f97e05;} 
+a:focus{outline: none;}
+a img{border: none;}
+
+#site-title a:hover,
+#site-slogan a:hover,
+.block h2.title a{
+	text-decoration:none;
+}
+
+.outsidecontent a,
+.outsidecontent li a.active,
+#header-images a,
+#navigation-secondary a{
+	color:white;
+	text-decoration:none;
+}
+
+.outsidecontent#topBar a{
+	color:yellow;
+}
+
+

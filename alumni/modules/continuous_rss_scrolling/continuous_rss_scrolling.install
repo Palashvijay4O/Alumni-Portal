@@ -1,0 +1,27 @@
+<?php
+// $Id: continuous_rss_scrolling.info,v 1.0 2012/02/22 22:22:22 Exp $
+
+/**
+ * @file
+ * Install file for the continuous_rss_scrolling module.
+ */
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function continuous_rss_scrolling_uninstall() 
+{
+  // Remove variables
+  variable_del('continuous_rss_scrolling_block_count');
+  
+  for ($i = 1; $i < 10; $i++) 
+  {
+    variable_del('continuous_rss_scrolling_rss' . $i);
+	variable_del('continuous_rss_scrolling_total' . $i);
+	variable_del('continuous_rss_scrolling_height' . $i);
+	variable_del('continuous_rss_scrolling_count' . $i);
+	variable_del('continuous_rss_scrolling_textlength' . $i);
+  }
+  // Remove records from {blocks} where module='continuous_rss_scrolling'
+  db_query("DELETE FROM {blocks} WHERE module='continuous_rss_scrolling'");
+}

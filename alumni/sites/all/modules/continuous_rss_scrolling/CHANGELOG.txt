@@ -1,0 +1,17 @@
+Continuous rss scrolling
+--------------------------------------------
+A module to show the rss feed in the sidebar with scrolling effect.
+
+
+Continuous rss scrolling x.x-x.x, xxxx-xx-xx
+--------------------------------------------
+
+
+Continuous rss scrolling 7.x-1.0, 2012-02-22
+--------------------------------------------
+First Version and First Release
+
+
+Official website for live demo
+--------------------------------------------
+http://www.gopiplus.com/extensions/2012/02/drupal-continuous-vertical-rss-scrolling-module-for-drupal-cms/

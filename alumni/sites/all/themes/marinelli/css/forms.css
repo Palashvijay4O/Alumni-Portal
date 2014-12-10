@@ -1,0 +1,108 @@
+/*
+*
+*
+* Forms
+* 
+*
+*/
+
+/* Structure
+-------------------------------------------------------------- */
+
+label,
+.field-label{
+	margin-bottom:5px;
+}
+
+.form-item .form-text,
+.form-item .form-textarea{
+	padding:5px;
+}
+
+.form-submit{
+	padding:5px 10px 5px 10px;
+	margin-top:15px;
+	margin-right:5px;
+}
+
+.form-submit::-moz-focus-inner { 
+  border: 0;
+  padding: 0;
+}
+
+#search .form-submit{ 
+	margin-left:5px;
+	padding:5px;	
+}
+	
+#search .form-text{ /* search box */
+	width: 180px;
+}
+
+/* Look & Feel
+-------------------------------------------------------------- */
+
+label,
+.field-label{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+.form-item .form-text,
+.form-item .form-textarea{
+	font-size: 1em;
+	border:1px solid #ccc;
+	color:#333;
+	background: #fff;
+}
+
+.form-text:focus,
+.form-textarea:focus{
+	border:1px solid #f97e05;
+}
+
+.form-submit{
+	font-size: 1.1em;
+	background: #f2f2f2;
+	border:1px solid #ccc;
+}
+
+.form-submit:focus,
+#block-user-login .form-submit:focus{
+	background:#f97e05;
+	color:#fff;
+	border:1px solid #f97e05;
+}
+
+#block-user-login .form-submit{
+	background: #054b81;
+	border:1px solid #2d7fbe;
+	color:white;
+}
+
+#search .form-text{ /* search box */
+	background: #156aa3;
+	border: 4px solid #fff;
+	color: white;
+	font-size:1.2em;
+}
+
+#search .form-text:focus{
+	background: #054b81;
+}
+
+#search .form-submit{
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:1.2em;
+	border: 4px solid #fff;
+	background:#054b81;
+	color: white;
+}
+
+#search .form-submit:focus,
+#search .form-submit:hover{
+	background: #f97e05;
+	outline: none;
+}

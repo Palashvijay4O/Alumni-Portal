@@ -1,0 +1,32 @@
+<?php
+
+class locationmapTest extends DrupalTestCase {
+  
+  function get_info() {
+    return array(
+      'name'  => 'locationmap',
+      'desc'  => t('locationmap unit tests.'),
+      'group' => 'locationmap',
+    );
+  }
+  
+  function test_locationmap_geocode_for_address() {
+    $result = locationmap_geocode_for_address("1600 Amphitheatre Parkway, Mountain View, CA");
+    $expected = array("37.421972", "-122.084143");
+    $this->assertEqual($expected, $result);
+  }
+  
+  function test_locationmap_geocode_for_address_not_found() {
+    $this->assertEqual(FALSE, locationmap_geocode_for_address("abcdefgh123"));
+  }
+  
+  function test_locationmap_geocode_for_address_recursive()  {
+    $result = locationmap_geocode_for_address_recursive("NonExistentAddress 123, NonExistingCity, Croatia");
+    $expected = array("44.466244", "16.461248");
+    $this->assertEqual($expected, $result);
+
+    $result = locationmap_geocode_for_address_recursive("NonExistentAddress 123, Pula, Croatia");
+    $expected = array("44.869652", "13.841147");
+    $this->assertEqual($expected, $result);
+  }
+}

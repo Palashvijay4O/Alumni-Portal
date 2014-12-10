@@ -1,0 +1,249 @@
+/*
+*
+* Primary Links 
+*
+*/
+
+
+/*	Structure
+-------------------------------------------------------------- */
+
+#navigation-primary{
+	height:40px;
+	line-height:40px;
+	float: left;
+	width: 100%;
+}
+	
+#navigation-primary ul{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+	
+#navigation-primary > ul > li{ /* first level */
+	margin-right:5px;
+	padding:0px;
+	float:left;
+	position:relative;
+	z-index: 3; /* position it over advertise (z-index=2) */
+}
+	
+#navigation-primary h2{
+	margin:0px;
+}
+	
+#navigation-primary > ul > li > a,
+#navigation-primary > ul > li > h2 > a{ /* first level links  make it block-level to fill the entire space */
+	float:left;
+	padding:0 10px 0 10px;
+}
+	
+#navigation-primary > ul > li > a.active,
+#navigation-primary > ul > li > h2 > a.active,
+#navigation-primary > ul > li > a:hover,
+#navigation-primary > ul > li > h2 > a:hover,
+#navigation-primary > ul > li:hover > a,
+#navigation-primary > ul > li:hover > h2 > a{  /* active and hover state of the first level */
+	padding:5px 10px 5px 10px;
+	margin-top:-10px;
+}
+	
+.mega{ /* submenu container */
+	position:absolute;
+	top:0px;
+	left:-9999px; /* hide when not required */
+	margin:0px;
+}
+	
+#navigation-primary li:hover .mega,
+#navigation-primary li .mega.open{ /* show */
+	top:40px; /* menu height */
+	left:0px;
+}
+	
+#navigation-primary li:hover .alt,
+#navigation-primary li .mega.open.alt{ /* show (alt) */
+	right:0em;
+	left:auto;
+}
+	
+.megamenuWrapper{
+	overflow:auto;
+	padding:15px;
+}
+
+.ie7 .megamenuWrapper{
+	overflow:visible;
+}
+	
+.closepanel{
+	width:100%;
+	height:12px;
+	text-align:right;
+}
+	
+.mega.alt .closepanel{
+	text-align:left;
+}
+
+.closepanel span{
+	padding:0 5px 0 5px;
+	margin-right:-1px;
+}
+	
+.mega.alt .closepanel span{
+	margin-left:-1px;
+}
+	
+.menu-section{
+	float:left;
+}
+
+.one-col{ /* 1) one column */
+	width:13em;
+}
+	
+.one-col .menu-section{ 
+	width:100%;
+}
+
+.two-col{ /* 2) one columns */
+	width:22em;
+}
+	
+.two-col .menu-section{ 
+	width:50%;
+}	
+
+.three-col{ /* 3) three columns */
+	width:40em;
+}
+	
+.three-col .menu-section{ 
+	width:33.3%;
+}
+
+.four-col{ /* 4) four columns */	
+	width:50em;
+}	
+	
+.four-col .menu-section{ 
+	width:25%;
+}
+
+.five-col{ /* 5) five columns */	
+	width:60em;
+}	
+	
+.five-col .menu-section{ 
+	width:20%;
+}
+
+.six-col{ /* 6) six columns */	
+	width:70em;
+}	
+	
+.six-col .menu-section{ 
+	width:16.6%;
+}
+
+#navigation-primary .mega ul.megamenu-2{ /* child links inside panel */
+	line-height: 2em;
+	margin-right:8px;
+}
+
+#navigation-primary ul.megamenu-section{ /* only for primary links with lists, not headings */
+	margin:-10px 8px 0 0;
+	padding:0px;
+}
+
+#navigation-primary ul.megamenu-section ul.megamenu-2{ /* only for primary links with lists, not headings */
+	margin:-2px 0 0 0;
+	padding:0px;
+}
+
+	
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+#navigation-primary > ul > li > h2,
+#navigation-primary > ul > li > a{ /* font-size of the first level */
+	font-size: 1em;
+	line-height: 40px;
+}
+
+#navigation-primary > ul > li > h2 > a,
+#navigation-primary > ul > li > a{ /* links of the first level */
+	text-transform: uppercase;
+	color:white;
+	font-weight: bold;
+	text-decoration:none;
+	background: #156aa3;
+}
+
+#navigation-primary > ul > li > a.active,
+#navigation-primary > ul > li > h2 > a.active{ /* active state of the first level */
+	background:#054b81;
+	color:#fff;
+}	
+	
+#navigation-primary > ul > li > a:hover,
+#navigation-primary > ul > li > h2 > a:hover,	
+#navigation-primary > ul > li:hover > a,
+#navigation-primary > ul > li:hover > h2 > a{ /* hover state of the first level */
+	background:#f97e05;
+	color:#fff;
+}
+
+#navigation-primary .mega a{ /* links color inside panel */
+	color:#222;
+	text-decoration: none;
+}
+
+#navigation-primary .mega a:hover{ /* :hover on links inside panel */
+	color:#333;
+	text-decoration:underline;
+}
+
+#navigation-primary .mega ul.megamenu-2 a{
+	color:#4c4b4b;
+}
+
+#navigation-primary h3,
+#navigation-primary li.menu-section-title > a{ /* primary links subsection titles */
+	font-size:0.9em;
+	text-transform:uppercase;
+	font-weight: bold;
+}
+	
+#navigation-primary li.menu-leaf-list{ /* child links inside the panel */
+	border-bottom: 1px dashed #e2e2e2;
+}
+
+.mega{
+	border-top: 10px solid #f97e05;
+	border-bottom: 4px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	background:#fff;
+}
+	
+.mega.closing{ /* mega menu while closing... */
+	border-bottom-color:#f97e05;
+	border-left-color:#f97e05;
+	border-right-color:#f97e05;
+}
+	
+.closepanel span{ /* close panel button */
+	background:#ccc;
+	color:#666;
+	text-transform:none;
+	font-size:0.9em;
+}
+
+.closepanel span:hover{
+	background:#f97e05;
+	color:white;
+	cursor:pointer;
+}	

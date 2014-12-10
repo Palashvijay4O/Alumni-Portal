@@ -1,0 +1,24 @@
+/**
+ *	common elements
+ */
+
+/* to hide elements that require js support */
+.marinelli-hide-no-js{
+	display:none;
+}
+
+/* Improve text contrast into page structure of theme see #1008340 */
+.page-admin-structure-block-demo-marinelli .block-region {
+  font-size: 1.5em;
+  padding: 15px;
+  color: black;
+  background: #f8fab3;
+  outline:2px dashed #bcc308;
+}
+
+/* block demonstration page: set a min-height to see the region  */
+
+.page-admin-structure-block-demo-marinelli #topBarContainer{ 
+  min-height: 100px;
+  text-align: center;
+}

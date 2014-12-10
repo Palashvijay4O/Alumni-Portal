@@ -1,0 +1,317 @@
+<?php
+// $Id: continuous_rss_scrolling.info,v 1.0 2012/02/22 22:22:22 Exp $
+
+
+/**
+ * Implementation hook_perm()
+ */
+function continuous_rss_scrolling_perm() 
+{
+  return array('view continuous rss scrolling block','view continuous rss scrolling pages');
+}
+
+/**
+ * Implementation hook_menu()
+ */
+function continuous_rss_scrolling_menu() 
+{
+  $items = array();
+  
+  $items['admin/structure/continuous_rss_scrolling'] = array(
+      'title' => 'Continuous rss scrolling module',
+      'description' => 'A module to show the rss feed in the sidebar with scrolling effect.',
+      'access arguments' => array(1),
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('continuous_rss_scrolling_admin_settings'),
+      'type' => MENU_NORMAL_ITEM);
+  
+  return $items;
+}
+
+/**
+ * Page callback for admin/settings/continuous_rss_scrolling
+ */
+function continuous_rss_scrolling_admin_settings() 
+{
+
+  $count_blocks = variable_get('continuous_rss_scrolling_block_count', 1);
+
+  $form['continuous_rss_scrolling_block_count'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Number of blocks'),
+    '#default_value' => $count_blocks,
+  );
+  
+  return system_settings_form($form);
+}
+
+/**
+ * Implementation hook_library().
+ */
+function continuous_rss_scrolling_library() 
+{
+  $libraries['continuous_rss_scrolling'] = array(
+    'title' => 'continuous rss scrolling',
+    'website' => 'http://www.gopiplus.com/extensions/2012/02/drupal-continuous-vertical-rss-scrolling-module-for-drupal-cms/',
+    'version' => '1',
+    'js' => array(drupal_get_path('module', 'continuous_rss_scrolling') . '/js/continuous_rss_scrolling.js' => array()),
+  );
+  return $libraries;
+}
+
+/**
+ * Implementation hook_help().
+ */
+function continuous_rss_scrolling_help($section) 
+{
+  $output = "gopiplus.com continuous rss scrolling module: Continuous rss scrolling drupal module will create the vertical scrolling reel gallery in the drupal website using the given rss feed. This will scroll the rss feed title like reel. The title will scroll one by one in the selected position. Using this module we can show any rss feed in our website. No coding knowledge required to configure this module. If you any doubt please chek the live demo in the official website.";
+  switch ($section) 
+  {
+    case 'admin/help#continuous_rss_scrolling':
+  		return $output;
+    case 'admin/modules#description':
+      	return $output;
+  }
+}
+
+/**
+ * Implementation hook_block_configure()
+ */
+function continuous_rss_scrolling_block_configure($delta = '') 
+{
+  //get node types
+  $node_types = array();
+  foreach (node_type_get_types() as $nt)
+  {
+    $node_types[$nt -> type] = $nt ->  name;
+  }
+
+  // get default values
+
+  $rss 			= variable_get("{$delta}_rss", 'http://www.gopiplus.com/work/feed/');
+  $total 		= variable_get("{$delta}_total", '5');
+  $height 		= variable_get("{$delta}_height",'40');
+  $count 		= variable_get("{$delta}_count",'2');
+  $textlength 	= variable_get("{$delta}_textlength",'100');
+  
+  // set form 
+ 
+  $form = array();
+  
+  $form["continuous_rss_scrolling_settings"] = array(
+    '#type' => 'fieldset',
+    '#weight' => 2 ,
+    '#title' => t('Basic settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#description' => t("Setings for continuous rss scrolling block")
+  );  
+  
+  $form["continuous_rss_scrolling_settings"]["{$delta}_rss"] = array(
+        '#type' => 'textfield',
+        '#title' => t('Enter the RSS link to scroll the title.') ,
+        '#default_value' => $rss,
+    );
+	
+  $form["continuous_rss_scrolling_settings"]["{$delta}_height"] = array(
+        '#type' => 'textfield',
+        '#title' => t('Each scroller height in scroll.') ,
+        '#default_value' => $height,
+    );
+	
+  $form["continuous_rss_scrolling_settings"]["{$delta}_textlength"] = array(
+        '#type' => 'textfield',
+        '#title' => t('Scroller text length, ie lenth of the title you want to scroll.') ,
+        '#default_value' => $textlength,
+    );
+	
+  $form['continuous_rss_scrolling_settings']["{$delta}_total"] = array(
+    '#type' => 'select',
+    '#title' => t('Select max number of record to scroll.'),
+    '#default_value' => $total,
+    '#options' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
+    '#description' => 'Select max number of record you want to retrive from the rss link to scroll in the scroller.'
+  );
+  
+  $form['continuous_rss_scrolling_settings']["{$delta}_count"] = array(
+    '#type' => 'select',
+    '#title' => t('Select number of record at the same time in scroll.'),
+    '#default_value' => $count,
+    '#options' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
+    '#description' => 'Select number of records you want to display in the scroller at the same time in scroll.'
+  );
+  
+  return $form;
+}
+
+/**
+ * Implementation hook_block_save()
+ */
+
+function continuous_rss_scrolling_block_save($delta = '', $edit = array()) 
+{
+
+	variable_set("{$delta}_rss", $edit["{$delta}_rss"]);
+	variable_set("{$delta}_height", $edit["{$delta}_height"]);
+	variable_set("{$delta}_total", $edit["{$delta}_total"]);
+	variable_set("{$delta}_count", $edit["{$delta}_count"]);
+	variable_set("{$delta}_textlength", $edit["{$delta}_textlength"]);
+}
+
+
+/**
+* Implements hook_block_view().
+*/
+function continuous_rss_scrolling_block_view($delta = '') 
+{
+  $block = array();
+  $block['content'] = continuous_rss_scrolling_generate_block($delta);  
+  return $block;
+}
+
+/**
+* Implements hook_block_info().
+*/
+function continuous_rss_scrolling_block_info() 
+{
+  $blocks = array();
+  $count_blocks = variable_get('continuous_rss_scrolling_block_count', 1);
+
+  for ($delta_block = 0 ; $count_blocks > $delta_block ;$delta_block ++) 
+  {
+      $blocks["continuous_rss_scrolling_$delta_block"]['info'] = "Continuous rss scrolling  " . ($delta_block + 1);
+  }
+  return $blocks;
+}
+
+
+function continuous_rss_scrolling_generate_block($delta) 
+{
+
+	drupal_add_library('continuous_rss_scrolling', 'continuous_rss_scrolling');
+
+	@$rss 					= variable_get("{$delta}_rss", 'http://www.gopiplus.com/work/feed/');
+	@$total 				= variable_get("{$delta}_total", '5');
+	@$ctsop_scrollheight 	= variable_get("{$delta}_height",'40');
+	@$ctsop_sametimedisplay = variable_get("{$delta}_count",'2');
+	@$ctsop_textlength 		= variable_get("{$delta}_textlength",'100');
+	
+	@$arr_total = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
+	@$arr_sametimedisplay = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
+	@$total = @$arr_total[@$total];
+	@$ctsop_sametimedisplay = @$arr_sametimedisplay[@$ctsop_sametimedisplay];
+	
+	if(!is_numeric(@$ctsop_textlength)){ @$ctsop_textlength = 100; }
+	if(!is_numeric(@$ctsop_sametimedisplay)){ @$ctsop_sametimedisplay = 5; }
+	if(!is_numeric(@$ctsop_scrollheight)){ @$ctsop_scrollheight = 40; }
+	if(!is_numeric(@$total)){ @$total = 10; }
+	
+	$xml = "";
+	$cnt=0;
+	$f = fopen( $rss, 'r' );
+	while( $data = fread( $f, 4096 ) ) { $xml .= $data; }
+	fclose( $f );
+	preg_match_all( "/\<item\>(.*?)\<\/item\>/s", $xml, $itemblocks );
+	
+	if ( ! empty($itemblocks) ) 
+	{
+		$ctsop_count = 0;
+		$ctsop_html = "";
+		$IRjsjs = "";
+		$ctsop_x = "";
+
+		foreach( $itemblocks[1] as $block )
+		{			
+			preg_match_all( "/\<title\>(.*?)\<\/title\>/",  $block, $title );
+			preg_match_all( "/\<link\>(.*?)\<\/link\>/", $block, $link );
+			
+			$ctsop_title = "";
+			
+			$crs_post_title = $title[1][0];
+			$ctsop_title = mysql_real_escape_string(trim($crs_post_title));
+			$get_permalink = $link[1][0];
+			$ctsop_link = mysql_real_escape_string(trim($get_permalink));
+			
+			if(is_numeric($ctsop_textlength))
+			{
+				if($ctsop_textlength <> "" && $ctsop_textlength > 0 )
+				{
+					$ctsop_title = substr($ctsop_title, 0, $ctsop_textlength);
+				}
+			}
+			
+			$ctsop_scrollheights = $ctsop_scrollheight."px";	
+			
+			$ctsop_html = $ctsop_html . "<div class='ctsop_div' style='height:".$ctsop_scrollheights.";padding:1px 0px 1px 0px;'>"; 
+			
+			if($ctsop_title <> "" )
+			{
+				$ctsop_html = $ctsop_html . "<div style='padding-left:4px;'>";	
+				$IRjsjs = $IRjsjs . "<div style=\'padding-left:4px;\'>";				
+				if($ctsop_link <> "" ) 
+				{ 
+					$ctsop_html = $ctsop_html . "<a href='$ctsop_link'>"; 
+					$IRjsjs = $IRjsjs . "<a href=\'$ctsop_link\'>";
+				} 
+				$ctsop_html = $ctsop_html . $ctsop_title;
+				$IRjsjs = $IRjsjs . $ctsop_title;
+				if($ctsop_link <> "" ) 
+				{ 
+					$ctsop_html = $ctsop_html . "</a>"; 
+					$IRjsjs = $IRjsjs . "</a>";
+				}
+				$ctsop_html = $ctsop_html . "</div>";
+				$IRjsjs = $IRjsjs . "</div>";
+			}
+			
+			$ctsop_html = $ctsop_html . "</div>";
+			
+			$ctsop_x = $ctsop_x . "ctsop[$ctsop_count] = '<div class=\'ctsop_div\' style=\'height:".$ctsop_scrollheights.";padding:1px 0px 1px 0px;\'>$IRjsjs</div>'; ";	
+			$ctsop_count++;
+			$IRjsjs = "";
+			if ($ctsop_count >= $total) 
+			{
+        		break;
+    		}
+		}
+		
+		$ctsop_scrollheight = $ctsop_scrollheight + 4;
+		if($ctsop_count >= $ctsop_sametimedisplay)
+		{
+			$ctsop_count = $ctsop_sametimedisplay;
+			$ctsop_scrollheight_New = ($ctsop_scrollheight * $ctsop_sametimedisplay);
+		}
+		else
+		{
+			$ctsop_count = $ctsop_count;
+			$ctsop_scrollheight_New = ($ctsop_count  * $ctsop_scrollheight);
+		}
+	}
+	
+	$ctsop = "";
+	$ctsop = $ctsop . '<div style="padding-top:8px;padding-bottom:8px;">';
+	$ctsop = $ctsop . '<div style="text-align:left;vertical-align:middle;text-decoration: none;overflow: hidden; position: relative; margin-left: 3px; height: '. @$ctsop_scrollheight .'px;" id="IRHolder">'.@$ctsop_html.'</div>';
+	$ctsop = $ctsop . '</div>';
+	$ctsop = $ctsop . '<script type="text/javascript">';
+	$ctsop = $ctsop . 'var ctsop = new Array();';
+	$ctsop = $ctsop . "var objctsop	= '';";
+	$ctsop = $ctsop . "var ctsop_scrollPos 	= '';";
+	$ctsop = $ctsop . "var ctsop_numScrolls	= '';";
+	$ctsop = $ctsop . 'var ctsop_heightOfElm = '. @$ctsop_scrollheight. ';';
+	$ctsop = $ctsop . 'var ctsop_numberOfElm = '. @$ctsop_count. ';';
+	$ctsop = $ctsop . "var ctsop_scrollOn 	= 'true';";
+	$ctsop = $ctsop . 'function ctsopScroll() ';
+	$ctsop = $ctsop . '{';
+	$ctsop = $ctsop . @$ctsop_x;
+	$ctsop = $ctsop . "objctsop	= document.getElementById('IRHolder');";
+	$ctsop = $ctsop . "objctsop.style.height = (ctsop_numberOfElm * ctsop_heightOfElm) + 'px';";
+	$ctsop = $ctsop . 'ctsopContent();';
+	$ctsop = $ctsop . '}';
+	$ctsop = $ctsop . '</script>';
+	$ctsop = $ctsop . '<script type="text/javascript">';
+	$ctsop = $ctsop . 'ctsopScroll();';
+	$ctsop = $ctsop . '</script>';
+		
+	return @$ctsop;
+}
+

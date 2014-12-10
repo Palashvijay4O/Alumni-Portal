@@ -1,0 +1,147 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the locationmap module.
+ *
+ */
+
+/**
+ * Rename 5.x-1.0 permission "admin gmaplocation", 6.x-1.0 permission
+ * "edit gmaplocation", and 6.x-2.0 permission "administer gmaplocation"
+ * to "Administer location map".
+ */
+function locationmap_update_104() {
+  // Location map module is the Drupal 7 successor to gmaplocation module.
+  // If role permissions exist from gmaplocation, these are updated for Location map.
+  // Set up the $replace array which holds strings both the old and new permissions.
+  $replace = array(
+    'admin gmaplocation' => 'administer locationmap',
+    'edit gmaplocation' => 'administer locationmap',
+    'administer gmaplocation' => 'administer locationmap'
+  );
+
+  // Loop over all the changes, performing necessary updates.
+  foreach ($replace as $old_permission => $new_permission) {
+    db_update('role_permission')
+      ->fields(array('permission' => $new_permission, 'module' => 'locationmap'))
+      ->condition('rid', 3, '<>')
+      ->condition('permission', $old_permission)
+      ->execute();
+  }
+
+  // Update any URL aliases previously set for gmaplocation to point to locationmap.
+  db_update('url_alias')
+    ->fields(array('source' => 'locationmap'))
+    ->condition('source', 'gmaplocation')
+    ->execute();
+
+  // Create locationmap variables. If gmaplocation variables exist, set to those values.
+  variable_set('locationmap_address', variable_get('gmaplocation_address'));
+  variable_set('locationmap_block_text_top', variable_get('gmaplocation_block_text_top'));
+  variable_set('locationmap_body', variable_get('gmaplocation_body'));
+  variable_set('locationmap_footer', variable_get('gmaplocation_footer'));
+  variable_set('locationmap_height', variable_get('gmaplocation_height'));
+  variable_set('locationmap_info', variable_get('gmaplocation_info'));
+  variable_set('locationmap_key', variable_get('gmaplocation_key'));
+  variable_set('locationmap_lat', variable_get('gmaplocation_lat'));
+  variable_set('locationmap_lng', variable_get('gmaplocation_lng'));
+  variable_set('locationmap_title', variable_get('gmaplocation_title'));
+  variable_set('locationmap_type', variable_get('gmaplocation_type'));
+  variable_set('locationmap_width', variable_get('gmaplocation_width'));
+  variable_set('locationmap_zoom', variable_get('gmaplocation_zoom'));
+
+  // Remove redundant gmaplocation variables.
+  variable_del('gmaplocation_address');
+  variable_del('gmaplocation_block_text_top');
+  variable_del('gmaplocation_body');
+  variable_del('gmaplocation_footer');
+  variable_del('gmaplocation_height');
+  variable_del('gmaplocation_info');
+  variable_del('gmaplocation_key');
+  variable_del('gmaplocation_lat');
+  variable_del('gmaplocation_lng');
+  variable_del('gmaplocation_title');
+  variable_del('gmaplocation_type');
+  variable_del('gmaplocation_width');
+  variable_del('gmaplocation_zoom');
+
+  // hook_update_N() no longer returns a $ret array. Instead, return
+  // nothing or a translated string indicating the update ran successfully.
+  // See http://drupal.org/node/224333#update_sql.
+  return t('Upgraded any legacy permissions and variables from gmaplocation module to locationmap.');
+}
+
+/**
+ * Change maps API v2 variables to v3 values.
+ * Unset the API key var, as it's not required any more.
+ */
+
+function locationmap_update_105() {
+
+  $locationmap_type = variable_get('locationmap_type', '');
+
+  // Only do anything if this is set
+  if ($locationmap_type) {
+
+    // Maps old values to new values:
+    $locationmap_type_new = array(
+      'G_NORMAL_MAP' => 'google.maps.MapTypeId.ROADMAP',
+      'G_SATELLITE_MAP' => 'google.maps.MapTypeId.SATELLITE',
+      'G_HYBRID_MAP' => 'google.maps.MapTypeId.HYBRID',
+    );
+
+    // Only reset this if it's a value we can translate:
+    if (isset($locationmap_type_new[$locationmap_type])) {
+      variable_set('locationmap_type', $locationmap_type_new[$locationmap_type]);
+    }
+  }
+
+  // We don't need this any more
+  variable_del('locationmap_key');
+}
+
+/**
+ * Upgrade text fields to enable enable rich text/full HTML and WYSIWYG editors.
+ */
+function locationmap_update_106() {
+  $locationmap_info = variable_get('locationmap_info');
+  if(is_array($locationmap_info)) {
+    // If a user has already had their variables upgraded by running the 7.x-2.x-dev branch
+    // do not run the update.
+    return t('No upgrade to variables required as this had already occurred while running the 7.x-2.x-dev branch.');
+  } else {
+    variable_set('locationmap_info', array(
+      'value' => variable_get('locationmap_info'),
+      'format' => filter_default_format(),
+      ));
+    variable_set('locationmap_body', array(
+      'value' => variable_get('locationmap_body'),
+      'format' => filter_default_format(),
+      ));
+    variable_set('locationmap_footer', array(
+      'value' => variable_get('locationmap_footer'),
+      'format' => filter_default_format(),
+    ));
+  return t('Location Map text fields updated to support rich text/full HTML and WYSIWYG editors.');
+  }
+}
+
+/**
+ * Implementation of hook_uninstall.
+ * @see http://drupal.org/node/1354
+ */
+function locationmap_uninstall() {
+  variable_del('locationmap_address');
+  variable_del('locationmap_block_text_top');
+  variable_del('locationmap_body');
+  variable_del('locationmap_footer');
+  variable_del('locationmap_height');
+  variable_del('locationmap_info');
+  variable_del('locationmap_key');
+  variable_del('locationmap_lat');
+  variable_del('locationmap_lng');
+  variable_del('locationmap_title');
+  variable_del('locationmap_type');
+  variable_del('locationmap_width');
+  variable_del('locationmap_zoom');
+}

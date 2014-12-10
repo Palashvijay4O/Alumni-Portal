@@ -1,0 +1,228 @@
+/*
+*
+*
+*	site-specific layout statements
+*
+*/
+
+
+/*	Structure
+-------------------------------------------------------------- */
+
+body,html{
+	margin:0px;
+	padding:0px;
+}
+
+#totalContainer{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.width_1#totalContainer{
+	width:1038px;
+}
+
+.width_2#totalContainer{
+	width:978px;
+}
+
+#topBar{
+	margin:0px;
+	padding:0px;
+	float:left;
+	width:100%;
+}
+
+#topBarContainer{
+	margin:15px auto 15px auto;
+}
+	
+.width_1#topBarContainer{
+	width:1038px;
+}
+	
+.width_2#topBarContainer{
+	width:978px;
+}
+
+#topBarLink{ /* top toggle bar */
+	text-align:center;
+	margin:0px;
+	padding:0px;
+	height:10px;
+	width:100%;
+}
+
+#topBarLink a{ /* top toggle bar */
+	float:left;
+	margin-left:48.5%; /* make it block level and try to center it without javascript..*/
+	padding:15px 10px 5px 10px;
+}
+
+#topBarLink.withoutTopRegion a{ /* makes space in case we don't have any element in the top Region */
+	margin-bottom:50px;
+}
+
+#top{ /* upper part of the template */
+	float:left;
+	width:100%;
+	height: 140px;
+	position:relative;
+	margin-bottom:10px;
+}
+
+#topUtility{
+	position:absolute;
+	top:20px;
+	right:0px;
+}
+
+#logo-container{ /* image logo container */
+	float:left;
+	height:150px;
+	margin-right:10px;
+	margin-top: 0px;
+}
+
+#title-slogan{ /* site title and slogan container */
+	float:left;
+	margin-top:20px;
+}
+
+#site-title,
+#site-slogan{ 
+	margin:0px;
+	padding:0px;
+}
+
+#search{ /* theme search box */
+	position: absolute;
+	right:0px;
+	top: 30px;
+}
+
+#search div{ /* search button inline */
+	display: inline;
+}
+
+#pageBorder{ /* makes the border */
+	float: left;
+}
+
+.ie7 #pageBorder{ /* for IE7 */
+  float: none;
+  overflow: hidden;
+}
+
+#contentWrapper{ /* wraps content */
+	float: left;
+	padding:15px 5px 15px 5px;
+	position: relative;
+	z-index: 1;	/* follows the z-index order of primary menu and advertise (to solve ie7 z-index BUG )*/
+}
+
+.breadcrumb{ /* breadcrumb */
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #ccc;
+	margin:0px 10px 15px 10px;
+}
+
+#footer{ /* site footer*/
+	margin-top: 25px;
+	padding-bottom:60px;
+	float: left;
+	width: 100%;
+	position:relative;
+}
+
+#navigation-footer{ /* site footer*/
+	position:absolute;
+	right:0px;
+	top:0px;
+	
+}
+
+#bottomUtility{
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+
+/* utility menu */
+
+.utility ul.menu{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+
+.utility ul.menu li{
+	display:inline;
+	margin:0px 0px 0px 4px;
+	padding:0px;
+}
+
+.utility ul.menu li a{
+	padding-right:8px;
+}
+
+.utility ul.menu li:after{
+	content:"|";
+}
+
+
+/*	Look & Feel
+-------------------------------------------------------------- */
+
+body.marinelli{
+	background: #17293d url(../img/backgrounds/body.gif);
+}
+	
+#topBar,#topBarLink,#topBarLink a{ /* top toggle bar */
+	background:#054b81;
+}
+
+#topBarLink a{
+	font-size: 1.1em;
+}
+
+.outsidecontent{
+	color:white;
+}
+
+#site-title,
+#site-slogan{
+	font-weight: bold;		
+}
+
+#site-title{
+	font-size: 3em;
+	line-height:0.8em;
+}
+
+#site-slogan {
+	font-size: 2em;
+	text-indent: 0.5em;
+}
+
+#pageBorder{ /* border of the whole site */ 
+	border:10px solid #054b81;
+}
+	
+#pageBorder.noborder{ /* when we don't have the advertise region */ 
+	border-top:0px;
+}
+
+#contentWrapper{
+	background: white;
+}
+
+.breadcrumb { /* breadcrumb */
+	font-weight: bold;
+}
+
+.utility{ /* utility menu */
+	font-size:0.9em;
+	text-transform:uppercase;
+}

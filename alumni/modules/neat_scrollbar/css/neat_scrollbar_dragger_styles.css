@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Neat Scrollbar Implementation of styles for alternative dragger.
+ */
+
+.mCSB_scrollTools .mCSB_dragger {
+  height: 12px !important;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  border-radius: 12px 12px 12px 12px !important;
+  width: 12px !important;
+}

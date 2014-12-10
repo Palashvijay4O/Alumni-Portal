@@ -1,0 +1,26 @@
+#locationmap-admin-settings #edit-locationmap-info-format,
+#locationmap-admin-settings #edit-locationmap-body-format,
+#locationmap-admin-settings #edit-locationmap-footer-format {
+  padding-top: 0;
+  padding-bottom: 0;
+  float: right;
+  }
+	
+#locationmap-admin-settings #edit-locationmap-info-format .form-item,
+#locationmap-admin-settings #edit-locationmap-body-format .form-item,
+#locationmap-admin-settings #edit-locationmap-footer-format .form-item {
+  display: block;
+  float: right;
+  margin-top: 6px;
+}
+
+#locationmap-admin-settings .filter-guidelines,
+#locationmap-admin-settings #edit-locationmap-info-format-help,
+#locationmap-admin-settings #edit-locationmap-body-format-help,
+#locationmap-admin-settings #edit-locationmap-footer-format-help {
+  display: none;
+}
+
+#locationmap-admin-settings .text-format-wrapper {
+  padding-bottom: 2em;
+}
